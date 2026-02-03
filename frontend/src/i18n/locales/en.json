@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Home",
+    "collection": "Collection",
+    "services": "Services",
+    "about": "About",
+    "signIn": "Sign In",
+    "signUp": "Sign Up"
+  },
+  "hero": {
+    "eyebrow": "Premium Silk Garments",
+    "title": "Timeless Silk for Modern Elegance",
+    "description": "Linces’CKF brings handcrafted silk pieces and bespoke manufacturing services together in one bilingual experience.",
+    "primaryCta": "Shop Collection",
+    "secondaryCta": "Discover Services"
+  },
+  "footer": {
+    "line1": "© {{year}} Linces’CKF. All rights reserved.",
+    "line2": "Silk garments & manufacturing services."
+  },
+  "split": {
+    "customersEyebrow": "For Customers",
+    "customersTitle": "Discover our silk collection",
+    "customersDescription": "Shop silk blouses, dresses, shirts, and scarves designed for everyday luxury.",
+    "customersCta": "Enter collection",
+    "brandsEyebrow": "For Brands",
+    "brandsTitle": "B2B silk manufacturing",
+    "brandsDescription": "Partner with our atelier for premium silk confection tailored to your label.",
+    "brandsCta": "Explore services"
+  },
+  "story": {
+    "eyebrow": "About Linces’CKF",
+    "title": "Crafted from silk, shaped by story.",
+    "description": "Each piece is designed to move with you — from atelier to everyday life — with a focus on detail, softness, and longevity."
+  },
+  "about": {
+    "eyebrow": "About Linces’CKF",
+    "title": "Crafted from silk, guided by story.",
+    "intro1": "Linces’CKF was born from a simple idea: silk should feel as effortless as it looks. Our atelier creates premium silk garments for individuals and fashion brands who value comfort, longevity, and quiet luxury.",
+    "intro2": "Every piece begins with fabric selection, continues through careful pattern making, and ends in precise finishing. We design for fluid movement, soft drape, and silhouettes that stay relevant beyond a single season.",
+    "customerTitle": "A wardrobe built on silk.",
+    "customerText": "For our customers, we create small, curated drops of blouses, dresses, shirts, and scarves. Each design is tested for fit and comfort, whether you are dressing for an event, a studio day, or a quiet evening.",
+    "craftTitle": "Detail in every stitch.",
+    "craftText": "From seams and linings to buttons and hems, every detail is considered. Our team balances traditional techniques with modern equipment to ensure consistent quality at every scale.",
+    "valuesQuietTitle": "Quiet luxury",
+    "valuesQuietText": "We focus on clean lines, refined silhouettes, and fabrics that feel as considered on the inside as they look on the outside.",
+    "valuesResponsibleTitle": "Responsible production",
+    "valuesResponsibleText": "Smaller drops, intentional batches, and a focus on durability help reduce overproduction and extend the life of each garment.",
+    "valuesCollabTitle": "Built for collaboration",
+    "valuesCollabText": "Beyond our own collections, we partner with brands to bring custom silk pieces to life through our B2B manufacturing services."
+  },
+  "services": {
+    "eyebrow": "B2B services",
+    "title": "Silk manufacturing for modern fashion brands.",
+    "intro1": "Linces’CKF partners with labels that need a reliable atelier for premium silk garments. From sampling to small-batch and recurring production, we support every stage with clear communication and consistent quality.",
+    "intro2": "You bring the vision and brand language. We bring technical pattern making, fabric expertise, and a process designed for repeat collaborations.",
+    "requestCta": "Request quote",
+    "processTitle": "A clear, four-step process.",
+    "processText": "Our process is designed to be predictable and transparent, whether you are testing a single style or scaling a full capsule collection.",
+    "step1Label": "01 · Brief",
+    "step1Title": "Design & specs",
+    "step1Text": "Share references, tech packs, quantities, and timing so we can understand the scope and constraints.",
+    "step2Label": "02 · Sampling",
+    "step2Title": "Prototype build",
+    "step2Text": "We translate your idea into a physical sample, refining fit and details before production.",
+    "step3Label": "03 · Production",
+    "step3Title": "Controlled runs",
+    "step3Text": "Once approved, we produce in small or recurring batches with strict quality checks.",
+    "step4Label": "04 · Delivery",
+    "step4Title": "Packed & shipped",
+    "step4Text": "Your pieces are pressed, packed, and dispatched according to your shipping preferences and timelines.",
+    "partnershipTitle": "Built for long-term partnerships.",
+    "partnershipText": "Whether you are an emerging label or an established house, we aim to become an extension of your team. Clear production calendars, reliable lead times, and consistent communication are at the core of how we work with brands.",
+    "partnershipCta": "Start a project"
+  }
+}

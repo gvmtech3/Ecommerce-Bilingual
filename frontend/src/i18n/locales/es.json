@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "collection": "Colección",
+    "services": "Servicios",
+    "about": "Sobre nosotros",
+    "signIn": "Iniciar sesión",
+    "signUp": "Crear cuenta"
+  },
+  "hero": {
+    "eyebrow": "Prendas de seda premium",
+    "title": "Seda atemporal para una elegancia moderna",
+    "description": "Linces’CKF une piezas de seda hechas a mano y servicios de confección a medida en una experiencia bilingüe.",
+    "primaryCta": "Ver colección",
+    "secondaryCta": "Descubrir servicios"
+  },
+  "footer": {
+    "line1": "© {{year}} Linces’CKF. Todos los derechos reservados.",
+    "line2": "Prendas de seda y servicios de confección."
+  },
+  "split": {
+    "customersEyebrow": "Para clientes",
+    "customersTitle": "Descubre nuestra colección de seda",
+    "customersDescription": "Blusas, vestidos, camisas y pañuelos de seda diseñados para el lujo diario.",
+    "customersCta": "Entrar a la colección",
+    "brandsEyebrow": "Para marcas",
+    "brandsTitle": "Confección B2B en seda",
+    "brandsDescription": "Colabora con nuestro atelier para confección premium en seda adaptada a tu etiqueta.",
+    "brandsCta": "Explorar servicios"
+  },
+  "story": {
+    "eyebrow": "Sobre Linces’CKF",
+    "title": "Tejido en seda, guiado por historias.",
+    "description": "Cada prenda está pensada para acompañarte — del atelier al día a día — con atención al detalle, suavidad y durabilidad.",
+    "cta": "Conoce nuestra historia"
+  },
+  "about": {
+    "eyebrow": "Sobre Linces’CKF",
+    "title": "Tejido en seda, guiado por historias.",
+    "intro1": "Linces’CKF nace de una idea sencilla: la seda debe sentirse tan ligera como se ve. Nuestro atelier crea prendas de seda premium para personas y marcas que valoran la comodidad, la durabilidad y el lujo silencioso.",
+    "intro2": "Cada pieza comienza con la selección del tejido, continúa con patronaje cuidadoso y termina con acabados precisos. Diseñamos para el movimiento fluido, la caída suave y siluetas que siguen vigentes más allá de una sola temporada.",
+    "customerTitle": "Un guardarropa construido en seda.",
+    "customerText": "Para nuestros clientes creamos colecciones pequeñas y cuidadas de blusas, vestidos, camisas y pañuelos. Cada diseño se prueba en ajuste y comodidad, ya sea para un evento, un día de estudio o una noche tranquila.",
+    "craftTitle": "Detalle en cada puntada.",
+    "craftText": "Desde costuras y forros hasta botones y dobladillos, cada detalle se considera. Combinamos técnicas tradicionales con equipos modernos para asegurar una calidad constante a cualquier escala.",
+    "valuesQuietTitle": "Lujo silencioso",
+    "valuesQuietText": "Nos enfocamos en líneas limpias, siluetas refinadas y tejidos que se sienten igual de cuidados por dentro que por fuera.",
+    "valuesResponsibleTitle": "Producción responsable",
+    "valuesResponsibleText": "Colecciones más pequeñas, tiradas intencionales y foco en la durabilidad ayudan a reducir la sobreproducción y prolongar la vida de cada prenda.",
+    "valuesCollabTitle": "Hecho para colaborar",
+    "valuesCollabText": "Más allá de nuestras colecciones, colaboramos con marcas para dar vida a piezas de seda personalizadas mediante nuestros servicios B2B."
+  },
+  "services": {
+    "eyebrow": "Servicios B2B",
+    "title": "Confección en seda para marcas contemporáneas.",
+    "intro1": "Linces’CKF colabora con etiquetas que necesitan un atelier confiable para prendas de seda premium. Desde muestrarios hasta producción en pequeños lotes y series recurrentes, apoyamos cada fase con comunicación clara y calidad constante.",
+    "intro2": "Tú traes la visión y el lenguaje de marca. Nosotros aportamos patronaje técnico, experiencia en tejidos y un proceso pensado para colaboraciones continuas.",
+    "requestCta": "Solicitar cotización",
+    "processTitle": "Un proceso claro en cuatro pasos.",
+    "processText": "Nuestro flujo está diseñado para ser predecible y transparente, ya sea que pruebes un solo diseño o escales una cápsula completa.",
+    "step1Label": "01 · Brief",
+    "step1Title": "Diseño y ficha técnica",
+    "step1Text": "Comparte referencias, fichas técnicas, cantidades y plazos para que podamos entender el alcance y las necesidades.",
+    "step2Label": "02 · Muestra",
+    "step2Title": "Prototipo",
+    "step2Text": "Traducimos tu idea a una muestra física y ajustamos calce y detalles antes de producir.",
+    "step3Label": "03 · Producción",
+    "step3Title": "Series controladas",
+    "step3Text": "Una vez aprobado, producimos en tiradas pequeñas o recurrentes con controles de calidad estrictos.",
+    "step4Label": "04 · Entrega",
+    "step4Title": "Empaque y envío",
+    "step4Text": "Tus piezas se planchan, empacan y despachan según tus preferencias y tiempos de entrega.",
+    "partnershipTitle": "Pensado para alianzas a largo plazo.",
+    "partnershipText": "Sea que estés lanzando una marca o consolidando una casa establecida, buscamos ser una extensión de tu equipo. Calendarios claros, plazos confiables y comunicación constante son la base de cómo trabajamos con las marcas.",
+    "partnershipCta": "Iniciar un proyecto"
+  }
+}

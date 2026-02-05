@@ -1,6 +1,6 @@
 // src/components/layout/Navigation.jsx
 import { useState } from 'react'
-import { ShoppingBag, Menu, X } from 'lucide-react'
+import { ShoppingBag, Menu, X, LogOut } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import LanguageToggle from './LanguageToggle'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
@@ -14,6 +14,7 @@ function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const isCustomer = isAuthenticated && user?.role === 'customer'
+  const isBrand = isAuthenticated && user?.role === 'brand'
 
   const handleLogoClick = () => {
     navigate('/')
@@ -44,7 +45,7 @@ function Navigation() {
             <span className="font-serif text-sm text-[#13293D]">LC</span>
           </div>
           <span className="font-serif text-xl tracking-[0.25em] text-[#13293D]">
-            LINCES’CKF
+            LINCES'CKF
           </span>
         </button>
 
@@ -60,13 +61,34 @@ function Navigation() {
           </button>
 
           {isCustomer && (
+            <>
+              <button
+                onClick={() => handleNavClick('/customer')}
+                className={`hover:text-[#D9A441] ${
+                  isActive('/customer') ? 'text-[#D9A441]' : ''
+                }`}
+              >
+                {t('dashboard.customer')}
+              </button>
+              <button
+                onClick={() => handleNavClick('/catalog')}
+                className={`hover:text-[#D9A441] ${
+                  isActive('/catalog') ? 'text-[#D9A441]' : ''
+                }`}
+              >
+                {t('nav.collection')}
+              </button>
+            </>
+          )}
+
+          {isBrand && (
             <button
-              onClick={() => handleNavClick('/catalog')}
+              onClick={() => handleNavClick('/brand')}
               className={`hover:text-[#D9A441] ${
-                isActive('/catalog') ? 'text-[#D9A441]' : ''
+                isActive('/brand') ? 'text-[#D9A441]' : ''
               }`}
             >
-              {t('nav.collection')}
+              {t('dashboard.brand')}
             </button>
           )}
 
@@ -110,9 +132,9 @@ function Navigation() {
           ) : (
             <button
               onClick={handleLogout}
-              className="text-md uppercase tracking-wide text-[#13293D]"
+              className="text-md uppercase tracking-wide cursor-pointer text-[#13293D]"
             >
-              Logout
+              <LogOut className="h-6 w-6 text-[#13293D]"/>
             </button>
           )}
 
@@ -174,13 +196,34 @@ function Navigation() {
             </button>
 
             {isCustomer && (
+              <>
+                <button
+                  onClick={() => handleNavClick('/customer')}
+                  className={`py-2 text-left hover:text-[#D9A441] ${
+                    isActive('/customer') ? 'text-[#D9A441]' : ''
+                  }`}
+                >
+                  {t('dashboard.customer')}
+                </button>
+                <button
+                  onClick={() => handleNavClick('/catalog')}
+                  className={`py-2 text-left hover:text-[#D9A441] ${
+                    isActive('/catalog') ? 'text-[#D9A441]' : ''
+                  }`}
+                >
+                  {t('nav.collection')}
+                </button>
+              </>
+            )}
+
+            {isBrand && (
               <button
-                onClick={() => handleNavClick('/catalog')}
+                onClick={() => handleNavClick('/brand')}
                 className={`py-2 text-left hover:text-[#D9A441] ${
-                  isActive('/catalog') ? 'text-[#D9A441]' : ''
+                  isActive('/brand') ? 'text-[#D9A441]' : ''
                 }`}
               >
-                {t('nav.collection')}
+                {t('dashboard.brand')}
               </button>
             )}
 
@@ -222,7 +265,7 @@ function Navigation() {
                   onClick={handleLogout}
                   className="block w-full py-2 text-left text-[#13293D]"
                 >
-                  Logout
+                  <LogOut className="h-6 w-6 text-[#13293D]"/>
                 </button>
               )}
             </div>

@@ -7,6 +7,10 @@
     "signIn": "Iniciar sesión",
     "signUp": "Crear cuenta"
   },
+  "dashboard": {
+    "customer": "Panel",
+    "brand": "Portal de Marca"
+  },
   "hero": {
     "eyebrow": "Prendas de seda premium",
     "title": "Seda atemporal para una elegancia moderna",
@@ -73,5 +77,25 @@
     "partnershipTitle": "Pensado para alianzas a largo plazo.",
     "partnershipText": "Sea que estés lanzando una marca o consolidando una casa establecida, buscamos ser una extensión de tu equipo. Calendarios claros, plazos confiables y comunicación constante son la base de cómo trabajamos con las marcas.",
     "partnershipCta": "Iniciar un proyecto"
+  },
+  "auth": {
+    "signinTitle": "Bienvenido de nuevo.",
+    "signinSubtitle": "Inicia sesión para seguir explorando nuestra colección de seda y gestionar tus pedidos.",
+    "signupTitle": "Crea tu cuenta Linces’CKF.",
+    "signupSubtitle": "Únete como cliente o marca para comprar, solicitar cotizaciones y seguir tus proyectos.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "rememberMe": "Recordarme",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "roleLabel": "Soy",
+    "roleCustomer": "Cliente",
+    "roleBrand": "Marca",
+    "signinCta": "Iniciar sesión",
+    "signupCta": "Crear cuenta",
+    "switchToSignup": "¿Nuevo aquí? Crea una cuenta",
+    "switchToSignin": "¿Ya tienes cuenta? Inicia sesión",
+    "imageTitle": "Seda que se mueve contigo.",
+    "imageText": "Desde colecciones limitadas hasta piezas a medida para marcas, nuestro atelier gira en torno a la seda y alianzas a largo plazo."
   }
 }

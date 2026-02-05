@@ -5,7 +5,12 @@
     "services": "Services",
     "about": "About",
     "signIn": "Sign In",
-    "signUp": "Sign Up"
+    "signUp": "Sign Up",
+    "logout": "Log Out"
+  },
+  "dashboard": {
+    "customer": "Dashboard",
+    "brand": "Brand Portal"
   },
   "hero": {
     "eyebrow": "Premium Silk Garments",
@@ -72,5 +77,25 @@
     "partnershipTitle": "Built for long-term partnerships.",
     "partnershipText": "Whether you are an emerging label or an established house, we aim to become an extension of your team. Clear production calendars, reliable lead times, and consistent communication are at the core of how we work with brands.",
     "partnershipCta": "Start a project"
+  },
+  "auth": {
+    "signinTitle": "Welcome back.",
+    "signinSubtitle": "Sign in to continue exploring our silk collection and manage your orders.",
+    "signupTitle": "Create your Linces’CKF account.",
+    "signupSubtitle": "Join as a customer or brand to shop, request quotes, and track your projects.",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "roleLabel": "I am a",
+    "roleCustomer": "Customer",
+    "roleBrand": "Brand",
+    "signinCta": "Sign in",
+    "signupCta": "Create account",
+    "switchToSignup": "New here? Create an account",
+    "switchToSignin": "Already have an account? Sign in",
+    "imageTitle": "Silk that moves with you.",
+    "imageText": "From limited collections to made-to-order pieces for brands, our atelier is built around silk and long-term partnerships."
   }
 }

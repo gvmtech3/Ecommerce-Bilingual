@@ -1,0 +1,90 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "customer@example.com",
+      "passwordHash": "demo", 
+      "role": "customer",
+      "name": "Clara Silva"
+    },
+    {
+      "id": 2,
+      "email": "brand@example.com",
+      "passwordHash": "demo",
+      "role": "brand",
+      "name": "Atelier Aurora"
+    }
+  ],
+  "profiles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Clara Silva",
+      "phone": "+34 600 000 001"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "name": "Atelier Aurora",
+      "phone": "+34 600 000 002"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "name": "Silk Wrap Blouse",
+      "description": "Soft wrap blouse in lightweight silk, designed for everyday wear.",
+      "price": 7500,
+      "imageUrl": "/images/products/silk-wrap-blouse.jpg",
+      "stock": 12
+    },
+    {
+      "id": 2,
+      "categoryId": 2,
+      "name": "Midnight Silk Dress",
+      "description": "Bias‑cut dress in deep ink silk with subtle shine.",
+      "price": 12800,
+      "imageUrl": "/images/products/midnight-silk-dress.jpg",
+      "stock": 5
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "Blouses", "description": "Silk blouses and tops." },
+    { "id": 2, "name": "Dresses", "description": "Silk dresses and gowns." }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "orderDate": "2026-02-01T10:00:00Z",
+      "status": "placed",
+      "total": 20300
+    }
+  ],
+  "orderItems": [
+    {
+      "id": 1,
+      "orderId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "priceAtPurchase": 7500
+    },
+    {
+      "id": 2,
+      "orderId": 1,
+      "productId": 2,
+      "quantity": 1,
+      "priceAtPurchase": 12800
+    }
+  ],
+  "serviceInquiries": [
+    {
+      "id": 1,
+      "userId": 2,
+      "description": "50 silk blouses for AW capsule collection.",
+      "status": "in_review",
+      "createdAt": "2026-02-02T12:00:00Z"
+    }
+  ]
+}

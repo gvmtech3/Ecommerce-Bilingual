@@ -1,46 +1,66 @@
-// src/components/layout/Navigation.jsx
-import { useState } from 'react'
-import { ShoppingBag, Menu, X, LogOut } from 'lucide-react'
-import { useTranslation } from 'react-i18next'
-import LanguageToggle from './LanguageToggle'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+// src/components/layout/Navigation.jsx - DYNAMIC CART COUNT
+import { useState } from "react";
+import { ShoppingBag, Menu, X, LogOut } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import LanguageToggle from "./LanguageToggle";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+import { useCart } from "../../contexts/CartContext"; // ✅ CART CONTEXT
 
 function Navigation() {
-  const { t } = useTranslation()
-  const { user, isAuthenticated, logout } = useAuth()
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const { t } = useTranslation();
+  const { user, isAuthenticated, logout } = useAuth();
+  const { getCartCount } = useCart(); // ✅ DYNAMIC COUNT
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isCustomer = isAuthenticated && user?.role === 'customer'
-  const isBrand = isAuthenticated && user?.role === 'brand'
+  const isCustomer = isAuthenticated && user?.role === "customer";
+  const isBrand = isAuthenticated && user?.role === "brand";
+
+  const brandMenuItems = [
+    { path: "/brand", label: t("brand.overview.title") },
+    { path: "/brand/quote", label: t("brand.quote.title") },
+    { path: "/brand/projects", label: t("brand.projects.title") },
+    { path: "/brand/profile", label: t("brand.profile.title") },
+  ];
 
   const handleLogoClick = () => {
-    navigate('/')
-    setMobileOpen(false)
-  }
+    navigate("/");
+    setMobileOpen(false);
+  };
 
   const handleNavClick = (path) => {
-    navigate(path)
-    setMobileOpen(false)
-  }
+    navigate(path);
+    setMobileOpen(false);
+  };
 
   const handleLogout = () => {
-    logout()
-    setMobileOpen(false)
-  }
+    logout();
+    setMobileOpen(false);
+  };
 
-  const isActive = (path) => location.pathname === path
+  // Replace your ENTIRE isActive function with this:
+const isActive = (path) => {
+  // EXACT matches - prevents parent/child interference
+  const exactRoutes = ['/', '/services', '/customer', '/catalog', '/customer/quote', '/brand']
+  
+  if (exactRoutes.includes(path)) {
+    return location.pathname === path
+  }
+  
+  // Nested/child routes use startsWith
+  return location.pathname.startsWith(path)
+}
+
+
+  const cartCount = getCartCount(); // ✅ LIVE COUNT
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#D9A441]/30 bg-[#E9E0D8]/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        {/* Left: Logo */}
-        <button
-          onClick={handleLogoClick}
-          className="flex items-center gap-2"
-        >
+        {/* Logo */}
+        <button onClick={handleLogoClick} className="flex items-center gap-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D9A441]">
             <span className="font-serif text-sm text-[#13293D]">LC</span>
           </div>
@@ -49,223 +69,182 @@ function Navigation() {
           </span>
         </button>
 
-        {/* Center: Desktop Links */}
-        <nav className="hidden gap-8 text-md uppercase text-[#181818] md:flex">
-          <button
-            onClick={() => handleNavClick('/')}
-            className={`hover:text-[#D9A441] ${
-              isActive('/') ? 'text-[#D9A441]' : ''
-            }`}
-          >
-            {t('nav.home')}
-          </button>
+        {/* Desktop Navigation */}
+        <nav className="hidden gap-8 md:flex">
+          {!isAuthenticated && (
+            <>
+              <button
+                onClick={() => handleNavClick("/")}
+                className={`hover:text-[#D9A441] ${isActive("/") ? "text-[#D9A441] font-semibold" : ""}`}
+              >
+                {t("nav.home")}
+              </button>
+              <button
+                onClick={() => handleNavClick("/services")}
+                className={`hover:text-[#D9A441] ${isActive("/services") ? "text-[#D9A441] font-semibold" : ""}`}
+              >
+                {t("nav.services")}
+              </button>
+            </>
+          )}
 
           {isCustomer && (
             <>
               <button
-                onClick={() => handleNavClick('/customer')}
-                className={`hover:text-[#D9A441] ${
-                  isActive('/customer') ? 'text-[#D9A441]' : ''
-                }`}
+                onClick={() => handleNavClick("/customer")}
+                className={`hover:text-[#D9A441] ${isActive("/customer") ? "text-[#D9A441] font-semibold" : ""}`}
               >
-                {t('dashboard.customer')}
+                {t("dashboard.customer")}
               </button>
               <button
-                onClick={() => handleNavClick('/catalog')}
-                className={`hover:text-[#D9A441] ${
-                  isActive('/catalog') ? 'text-[#D9A441]' : ''
-                }`}
+                onClick={() => handleNavClick("/catalog")}
+                className={`hover:text-[#D9A441] ${isActive("/catalog") ? "text-[#D9A441] font-semibold" : ""}`}
               >
-                {t('nav.collection')}
+                {t("nav.collection")}
+              </button>
+              <button
+                onClick={() => handleNavClick("/customer/quote")}
+                className={`hover:text-[#D9A441] ${isActive("/customer/quote") ? "text-[#D9A441] font-semibold" : ""}`}
+              >
+                {t("customer.requestQuote")} {/* ✅ NEW */}
               </button>
             </>
           )}
 
           {isBrand && (
-            <button
-              onClick={() => handleNavClick('/brand')}
-              className={`hover:text-[#D9A441] ${
-                isActive('/brand') ? 'text-[#D9A441]' : ''
-              }`}
-            >
-              {t('dashboard.brand')}
-            </button>
+            <div className="flex gap-4">
+              {brandMenuItems.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavClick(item.path)}
+                  className={`flex items-center gap-2 hover:text-[#D9A441] transition-all ${
+                    isActive(item.path)
+                      ? "text-[#D9A441] font-semibold scale-105"
+                      : "text-[#181818]"
+                  }`}
+                >
+                  <span className="text-lg">{item.icon}</span>
+                  <span className="uppercase tracking-wide text-sm">
+                    {item.label}
+                  </span>
+                </button>
+              ))}
+            </div>
           )}
-
-          <button
-            onClick={() => handleNavClick('/services')}
-            className={`hover:text-[#D9A441] ${
-              isActive('/services') ? 'text-[#D9A441]' : ''
-            }`}
-          >
-            {t('nav.services')}
-          </button>
-          <button
-            onClick={() => handleNavClick('/about')}
-            className={`hover:text-[#D9A441] ${
-              isActive('/about') ? 'text-[#D9A441]' : ''
-            }`}
-          >
-            {t('nav.about')}
-          </button>
         </nav>
 
-        {/* Right: Desktop actions */}
+        {/* Desktop Actions */}
         <div className="hidden items-center gap-4 md:flex">
           <LanguageToggle />
-
           {!isAuthenticated ? (
             <>
               <Link
                 to="/auth?mode=signin"
                 className="text-md uppercase tracking-wide text-[#a437b0]"
               >
-                {t('nav.signIn')}
+                {t("nav.signIn")}
               </Link>
               <Link
                 to="/auth?mode=signup"
                 className="rounded-full border border-[#e2a95e] px-4 py-2 text-md uppercase tracking-wide text-[#13293D]"
               >
-                {t('nav.signUp')}
+                {t("nav.signUp")}
               </Link>
             </>
           ) : (
             <button
               onClick={handleLogout}
-              className="text-md uppercase tracking-wide cursor-pointer text-[#13293D]"
+              className="flex items-center gap-2 rounded-full border border-[#13293D]/50 px-4 py-2 text-sm text-[#13293D] hover:bg-[#13293D]/10"
             >
-              <LogOut className="h-6 w-6 text-[#13293D]"/>
+              <LogOut className="h-4 w-4" />
+              {t("nav.logout")}
             </button>
           )}
 
-          {isCustomer && (
+          {/* ✅ DYNAMIC CART BADGE - UPDATES INSTANTLY */}
+          {isCustomer && cartCount > 0 && (
             <button
-              onClick={() => handleNavClick('/cart')}
-              className="relative flex h-9 w-9 items-center justify-center rounded-full border border-[#13293D]"
+              onClick={() => handleNavClick("/cart")}
+              className="relative flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#13293D] hover:bg-[#13293D]/10 transition-all"
             >
-              <ShoppingBag className="h-4 w-4 text-[#13293D]" />
-              <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#13293D] text-[10px] text-white">
-                0
+              <ShoppingBag className="h-5 w-5 text-[#13293D]" />
+              <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#D9A441] text-xs font-bold text-white shadow-lg border-2 border-white">
+                {cartCount}
               </span>
             </button>
           )}
         </div>
 
-        {/* Mobile: right side (language + hamburger + optional cart) */}
+        {/* Mobile hamburger */}
         <div className="flex items-center gap-3 md:hidden">
           <LanguageToggle />
-
-          {isCustomer && (
+          {isCustomer && cartCount > 0 && (
             <button
-              onClick={() => {
-                handleNavClick('/cart')
-              }}
-              className="relative flex h-9 w-9 items-center justify-center rounded-full border border-[#13293D]"
+              onClick={() => handleNavClick("/cart")}
+              className="relative flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#13293D]"
             >
-              <ShoppingBag className="h-4 w-4 text-[#13293D]" />
-              <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#13293D] text-[10px] text-white">
-                0
+              <ShoppingBag className="h-5 w-5 text-[#13293D]" />
+              <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#D9A441] text-xs font-bold text-white shadow-lg border-2 border-white">
+                {cartCount}
               </span>
             </button>
           )}
-
           <button
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#13293D]"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#13293D]"
           >
             {mobileOpen ? (
-              <X className="h-4 w-4 text-[#13293D]" />
+              <X className="h-5 w-5" />
             ) : (
-              <Menu className="h-4 w-4 text-[#13293D]" />
+              <Menu className="h-5 w-5" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile Menu */}
       {mobileOpen && (
         <div className="border-t border-[#D9A441]/30 bg-[#F6F3F0] md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-md uppercase text-[#181818]">
-            <button
-              onClick={() => handleNavClick('/')}
-              className={`py-2 text-left hover:text-[#D9A441] ${
-                isActive('/') ? 'text-[#D9A441]' : ''
-              }`}
-            >
-              {t('nav.home')}
-            </button>
-
+          <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6">
             {isCustomer && (
               <>
                 <button
-                  onClick={() => handleNavClick('/customer')}
-                  className={`py-2 text-left hover:text-[#D9A441] ${
-                    isActive('/customer') ? 'text-[#D9A441]' : ''
-                  }`}
+                  onClick={() => handleNavClick("/customer")}
+                  className={`py-3 px-4 rounded-xl ${isActive("/customer") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
                 >
-                  {t('dashboard.customer')}
+                  {t("dashboard.customer")}
                 </button>
                 <button
-                  onClick={() => handleNavClick('/catalog')}
-                  className={`py-2 text-left hover:text-[#D9A441] ${
-                    isActive('/catalog') ? 'text-[#D9A441]' : ''
-                  }`}
+                  onClick={() => handleNavClick("/catalog")}
+                  className={`py-3 px-4 rounded-xl ${isActive("/catalog") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
                 >
-                  {t('nav.collection')}
+                  {t("nav.collection")}
+                </button>
+                <button
+                  onClick={() => handleNavClick("/customer/quote")}
+                  className={`py-3 px-4 rounded-xl ${isActive("/customer/quote") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+                >
+                  {t("customer.requestQuote")}
                 </button>
               </>
             )}
-
-            {isBrand && (
-              <button
-                onClick={() => handleNavClick('/brand')}
-                className={`py-2 text-left hover:text-[#D9A441] ${
-                  isActive('/brand') ? 'text-[#D9A441]' : ''
-                }`}
-              >
-                {t('dashboard.brand')}
-              </button>
-            )}
-
-            <button
-              onClick={() => handleNavClick('/services')}
-              className={`py-2 text-left hover:text-[#D9A441] ${
-                isActive('/services') ? 'text-[#D9A441]' : ''
-              }`}
-            >
-              {t('nav.services')}
-            </button>
-            <button
-              onClick={() => handleNavClick('/about')}
-              className={`py-2 text-left hover:text-[#D9A441] ${
-                isActive('/about') ? 'text-[#D9A441]' : ''
-              }`}
-            >
-              {t('nav.about')}
-            </button>
-
-            <div className="mt-2 border-t border-[#D9A441]/20 pt-2">
+            <div className="border-t border-[#D9A441]/20 pt-4">
               {!isAuthenticated ? (
                 <>
                   <button
-                    onClick={() => handleNavClick('/auth?mode=signin')}
-                    className="block w-full py-2 text-left text-[#13293D]"
+                    onClick={() => handleNavClick("/auth?mode=signin")}
+                    className="block w-full py-3 px-4 text-left text-[#13293D] hover:bg-[#E9E0D8]"
                   >
-                    {t('nav.signIn')}
-                  </button>
-                  <button
-                    onClick={() => handleNavClick('/auth?mode=signup')}
-                    className="mt-1 block w-full rounded-full border border-[#13293D] px-4 py-2 text-left text-[#13293D]"
-                  >
-                    {t('nav.signUp')}
+                    {t("nav.signIn")}
                   </button>
                 </>
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="block w-full py-2 text-left text-[#13293D]"
+                  className="flex w-full items-center gap-3 py-3 px-4 text-left text-[#13293D] hover:bg-[#E9E0D8]"
                 >
-                  <LogOut className="h-6 w-6 text-[#13293D]"/>
+                  <LogOut className="h-5 w-5" />
+                  {t("nav.logout")}
                 </button>
               )}
             </div>
@@ -273,7 +252,7 @@ function Navigation() {
         </div>
       )}
     </header>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;

@@ -3,13 +3,13 @@
     {
       "id": 1,
       "email": "customer@example.com",
-      "passwordHash": "demo", 
+      "passwordHash": "demo",
       "role": "customer",
       "name": "Clara Silva"
     },
     {
       "id": 2,
-      "email": "brand@example.com",
+      "email": "brand@example.com", 
       "passwordHash": "demo",
       "role": "brand",
       "name": "Atelier Aurora"
@@ -84,7 +84,54 @@
       "userId": 2,
       "description": "50 silk blouses for AW capsule collection.",
       "status": "in_review",
-      "createdAt": "2026-02-02T12:00:00Z"
+      "createdAt": "2026-02-02T12:00:00Z",
+      "quantity": 50,
+      "deadline": "2026-03-01"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "description": "100 silk scarves with custom embroidery for SS25.",
+      "status": "approved",
+      "createdAt": "2026-02-05T09:30:00Z",
+      "quantity": 100,
+      "deadline": "2026-02-28"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "description": "25 silk dresses - bias cut, midnight navy.",
+      "status": "production",
+      "createdAt": "2026-01-28T14:20:00Z",
+      "quantity": 25,
+      "deadline": "2026-02-20"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "description": "200 silk shirts for corporate uniforms.",
+      "status": "completed",
+      "createdAt": "2026-01-15T11:00:00Z",
+      "quantity": 200,
+      "deadline": "2026-02-10"
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "description": "75 silk pillowcases - hotel collection.",
+      "status": "pending",
+      "createdAt": "2026-02-07T16:45:00Z",
+      "quantity": 75,
+      "deadline": "2026-03-15"
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "description": "30 silk robes for spa collection.",
+      "status": "in_review",
+      "createdAt": "2026-02-06T10:15:00Z",
+      "quantity": 30,
+      "deadline": "2026-03-05"
     }
   ]
 }

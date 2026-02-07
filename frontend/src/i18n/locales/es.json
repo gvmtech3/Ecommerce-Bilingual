@@ -5,7 +5,9 @@
     "services": "Servicios",
     "about": "Sobre nosotros",
     "signIn": "Iniciar sesión",
-    "signUp": "Crear cuenta"
+    "signUp": "Crear cuenta",
+    "logout": "Cerrar sesión",
+    "email": "Correo"
   },
   "dashboard": {
     "customer": "Panel",
@@ -97,5 +99,102 @@
     "switchToSignin": "¿Ya tienes cuenta? Inicia sesión",
     "imageTitle": "Seda que se mueve contigo.",
     "imageText": "Desde colecciones limitadas hasta piezas a medida para marcas, nuestro atelier gira en torno a la seda y alianzas a largo plazo."
+  },
+  "brand": {
+    "overview": {
+      "title": "Portal de Marca",
+      "subtitle": "Gestiona tus solicitudes de servicio y sigue tus proyectos.",
+      "stats": {
+        "total": "Solicitudes Totales",
+        "pending": "En Revisión",
+        "completed": "Completadas"
+      },
+      "recent": "Solicitudes Recientes"
+    },
+    "quote": {
+      "title": "Solicitar Cotización",
+      "subtitle": "Envía una nueva solicitud de servicio para tus necesidades de confección en seda.",
+      "form": {
+        "quantity": "Cantidad",
+        "description": "Descripción",
+        "deadline": "Fecha Límite Objetivo",
+        "fabrics": "Preferencias de Tejido",
+        "submit": "Enviar Solicitud"
+      }
+    },
+    "projects": {
+      "title": "Mis Proyectos",
+      "subtitle": "Sigue todas tus solicitudes de servicio.",
+      "status": {
+        "pending": "Pendiente",
+        "in_review": "En Revisión",
+        "approved": "Aprobada",
+        "production": "Producción",
+        "completed": "Completada"
+      },
+      "empty": "Aún no tienes proyectos. Comienza solicitando una cotización."
+    },
+    "profile": {
+      "title": "Perfil de Marca",
+      "subtitle": "Gestiona la información de tu marca.",
+      "save": "Guardar Cambios",
+      "name": "Nombre de Marca",
+      "phone": "Teléfono",
+      "edit": "Editar",
+      "cancel": "Cancelar"
+    }
+  },
+  "catalog": {
+    "subtitle": "Descubre nuestra exquisita colección de prendas de seda premium",
+    "addToCart": "Añadir al Carrito",
+    "adding": "Añadiendo...",
+    "added": "¡Añadido!",
+    "filter": "Filtrar por Categoría",
+    "all": "Todos los Productos"
+  },
+  "customer": {
+    "requestQuote": "Solicitar Cotización",
+    "quote": {
+      "title": "Solicitar Cotización Personalizada",
+      "subtitle": "Necesitas algo hecho a medida? Envía tus requisitos y te responderemos en 24 horas.",
+      "form": {
+        "name": "Tu Nombre",
+        "email": "Correo Electrónico",
+        "quantity": "Cantidad Necesaria",
+        "description": "Descripción del Proyecto",
+        "deadline": "Fecha Límite Deseada",
+        "fabrics": "Preferencias de Tela",
+        "submit": "Enviar Solicitud"
+      },
+      "success": "¡Solicitud de cotización enviada exitosamente!"
+    }
+  },
+  "cart": {
+    "title": "Carrito de Compras",
+    "subtitle": "Revisa tus artículos",
+    "emptyTitle": "Tu carrito está vacío",
+    "emptySubtitle": "Aún no has añadido ningún artículo",
+    "startShopping": "Comenzar a Comprar",
+    "orderSummary": "Resumen del Pedido",
+    "totalItems": "Total de Artículos",
+    "subtotal": "Subtotal",
+    "shipping": "Envío",
+    "total": "Total",
+    "form": {
+      "fullName": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "address": "Dirección de Envío",
+      "namePlaceholder": "Juan Pérez",
+      "addressPlaceholder": "Calle Principal 123"
+    },
+    "remove": "Eliminar",
+    "proceedToPayment": "Proceder al Pago",
+    "processing": "Procesando...",
+    "secure": "Pago seguro"
+  },
+  "pagination": {
+    "previous": "Anterior",
+    "next": "Siguiente"
   }
 }

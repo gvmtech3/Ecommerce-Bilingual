@@ -20,6 +20,15 @@ const dashboardApi = {
       },
     })
   },
+  getBrandOverview(userId) {
+    return axiosClient.get('/serviceInquiries', {
+      params: { userId },
+    })
+  },
+
+  createServiceInquiry(data) {
+    return axiosClient.post('/serviceInquiries', data)
+  },
 }
 
 export default dashboardApi

@@ -6,7 +6,8 @@
     "about": "About",
     "signIn": "Sign In",
     "signUp": "Sign Up",
-    "logout": "Log Out"
+    "logout": "Logout",
+    "email": "Email"
   },
   "dashboard": {
     "customer": "Dashboard",
@@ -97,5 +98,102 @@
     "switchToSignin": "Already have an account? Sign in",
     "imageTitle": "Silk that moves with you.",
     "imageText": "From limited collections to made-to-order pieces for brands, our atelier is built around silk and long-term partnerships."
+  },
+  "brand": {
+    "overview": {
+      "title": "Brand Portal",
+      "subtitle": "Manage your service inquiries and track projects.",
+      "stats": {
+        "total": "Total Inquiries",
+        "pending": "In Review",
+        "completed": "Completed"
+      },
+      "recent": "Recent Inquiries"
+    },
+    "quote": {
+      "title": "Request Quote",
+      "subtitle": "Submit a new service inquiry for your silk manufacturing needs.",
+      "form": {
+        "quantity": "Quantity",
+        "description": "Description",
+        "deadline": "Target Deadline",
+        "fabrics": "Fabric Preferences",
+        "submit": "Submit Inquiry"
+      }
+    },
+    "projects": {
+      "title": "My Projects",
+      "subtitle": "Track all your service inquiries.",
+      "status": {
+        "pending": "Pending",
+        "in_review": "In Review",
+        "approved": "Approved",
+        "production": "Production",
+        "completed": "Completed"
+      },
+      "empty": "No projects yet. Start by requesting a quote."
+    },
+    "profile": {
+      "title": "Brand Profile",
+      "subtitle": "Manage your brand information.",
+      "save": "Save Changes",
+      "name": "Brand Name",
+      "phone": "Phone Number",
+      "edit": "Edit",
+      "cancel": "Cancel"
+    }
+  },
+  "catalog": {
+    "subtitle": "Discover our exquisite collection of premium silk garments",
+    "addToCart": "Add to Cart",
+    "adding": "Adding...",
+    "added": "Added!",
+    "filter": "Filter by Category",
+    "all": "All Products"
+  },
+  "customer": {
+    "requestQuote": "Request Quote",
+    "quote": {
+      "title": "Request Custom Quote",
+      "subtitle": "Need something custom made? Submit your requirements and we'll get back to you within 24 hours.",
+      "form": {
+        "name": "Your Name",
+        "email": "Email",
+        "quantity": "Quantity Needed",
+        "description": "Project Description",
+        "deadline": "Target Deadline",
+        "fabrics": "Fabric Preferences",
+        "submit": "Submit Request"
+      },
+      "success": "Quote request submitted successfully!"
+    }
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "subtitle": "Review your items",
+    "emptyTitle": "Your Cart is Empty",
+    "emptySubtitle": "You haven't added any items",
+    "startShopping": "Start Shopping",
+    "orderSummary": "Order Summary",
+    "totalItems": "Total Items",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "form": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "address": "Shipping Address",
+      "namePlaceholder": "John Doe",
+      "addressPlaceholder": "123 Main St"
+    },
+    "remove": "Remove",
+    "proceedToPayment": "Proceed to Payment",
+    "processing": "Processing...",
+    "secure": "Secure checkout"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next"
   }
 }

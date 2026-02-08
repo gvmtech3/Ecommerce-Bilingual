@@ -11,7 +11,25 @@
   },
   "dashboard": {
     "customer": "Dashboard",
-    "brand": "Brand Portal"
+    "brand": "Brand Portal",
+    "quickStats": "Quick Stats",
+    "totalOrders": "Total Orders",
+    "totalSpent": "Total Spent",
+    "filterOrders": "Filter Orders",
+    "latest": "Latest",
+    "pastMonth": "Past Month",
+    "pastYear": "Past Year",
+    "myOrders": "My Orders ({{count}})",
+    "orderId": "Order ID",
+    "date": "Date",
+    "items": "Items",
+    "total": "Total",
+    "status": "Status",
+    "statuses": {
+      "delivered": "Delivered",
+      "processing": "Processing",
+      "shipped": "Shipped"
+    }
   },
   "hero": {
     "eyebrow": "Premium Silk Garments",
@@ -149,7 +167,18 @@
     "adding": "Adding...",
     "added": "Added!",
     "filter": "Filter by Category",
-    "all": "All Products"
+    "all": "All Products",
+    "productsCount": "{{count}} products",
+    "inStock": "In Stock",
+    "categories": {
+      "blouses": "Blouses",
+      "scarves": "Scarves",
+      "dresses": "Dresses",
+      "shirts": "Shirts",
+      "robes": "Robes",
+      "tops": "Tops",
+      "pants": "Pants"
+    }
   },
   "customer": {
     "requestQuote": "Request Quote",
@@ -194,6 +223,15 @@
   },
   "pagination": {
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "showing": "Showing {{from}}-{{to}} of {{total}} products"
+  },
+  "order": {
+    "successTitle": "¡Order Successfully Placed!",
+    "successMessage": "Thank you for your purchase. Your order has been confirmed and will be processed shortly.",
+    "continueShopping": "Continue Shopping",
+    "viewOrders": "View Orders",
+    "trackingInfo": "You will receive a confirmation email with your order number and tracking details shortly.",
+    "orderNumber": "Order Number"
   }
 }

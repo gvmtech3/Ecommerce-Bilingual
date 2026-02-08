@@ -11,7 +11,25 @@
   },
   "dashboard": {
     "customer": "Panel",
-    "brand": "Portal de Marca"
+    "brand": "Portal de Marca",
+    "quickStats": "Estadísticas Rápidas",
+    "totalOrders": "Órdenes Totales",
+    "totalSpent": "Total Gastado",
+    "filterOrders": "Filtrar Órdenes",
+    "latest": "Más Recientes",
+    "pastMonth": "Último Mes",
+    "pastYear": "Último Año",
+    "myOrders": "Mis Órdenes ({{count}})",
+    "orderId": "ID de Orden",
+    "date": "Fecha",
+    "items": "Artículos",
+    "total": "Total",
+    "status": "Estado",
+    "statuses": {
+      "delivered": "Entregado",
+      "processing": "Procesando",
+      "shipped": "Enviado"
+    }
   },
   "hero": {
     "eyebrow": "Prendas de seda premium",
@@ -150,7 +168,18 @@
     "adding": "Añadiendo...",
     "added": "¡Añadido!",
     "filter": "Filtrar por Categoría",
-    "all": "Todos los Productos"
+    "all": "Todos los Productos",
+    "productsCount": "{{count}} productos",
+    "inStock": "En Stock",
+    "categories": {
+      "blouses": "Blusas",
+      "scarves": "Pañuelos",
+      "dresses": "Vestidos",
+      "shirts": "Camisas",
+      "robes": "Batas",
+      "tops": "Tops",
+      "pants": "Pantalones"
+    }
   },
   "customer": {
     "requestQuote": "Solicitar Cotización",
@@ -195,6 +224,15 @@
   },
   "pagination": {
     "previous": "Anterior",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "showing": "Mostrando {{from}}-{{to}} de {{total}} productos"
+  },
+  "order": {
+    "successTitle": "¡Pedido Realizado Exitosamente!",
+    "successMessage": "Gracias por tu compra. Tu pedido ha sido confirmado y será procesado en breve.",
+    "continueShopping": "Continuar Comprando",
+    "viewOrders": "Ver Pedidos",
+    "trackingInfo": "Recibirás un email de confirmación con el número de pedido y detalles de seguimiento en breve.",
+    "orderNumber": "Número de Pedido"
   }
 }

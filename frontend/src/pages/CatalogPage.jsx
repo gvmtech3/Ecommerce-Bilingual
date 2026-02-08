@@ -1,4 +1,4 @@
-// src/pages/CatalogPage.jsx - ✅ COMPACT FILTER DROPDOWN
+// src/pages/CatalogPage.jsx - ✅ 100% BILINGUAL
 import { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../contexts/CartContext";
@@ -108,7 +108,7 @@ function CatalogPage() {
   const [addingProduct, setAddingProduct] = useState(null);
   const [addedFeedback, setAddedFeedback] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [showFilterDropdown, setShowFilterDropdown] = useState(false); // ✅ Dropdown toggle
+  const [showFilterDropdown, setShowFilterDropdown] = useState(false);
 
   // Get unique categories
   const categories = useMemo(() => {
@@ -152,7 +152,7 @@ function CatalogPage() {
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
     setCurrentPage(1);
-    setShowFilterDropdown(false); // Close dropdown after selection
+    setShowFilterDropdown(false);
   };
 
   const getButtonContent = (product) => {
@@ -177,6 +177,22 @@ function CatalogPage() {
     return t("catalog.addToCart") || "Add to Cart";
   };
 
+  const getCategoryName = (category) => {
+    if (category === "all") return t("catalog.all") || "All Products";
+    
+    const categoryTranslations = {
+      blouses: t("catalog.categories.blouses") || "Blouses",
+      scarves: t("catalog.categories.scarves") || "Scarves",
+      dresses: t("catalog.categories.dresses") || "Dresses",
+      shirts: t("catalog.categories.shirts") || "Shirts",
+      robes: t("catalog.categories.robes") || "Robes",
+      tops: t("catalog.categories.tops") || "Tops",
+      pants: t("catalog.categories.pants") || "Pants",
+    };
+    
+    return categoryTranslations[category] || category.charAt(0).toUpperCase() + category.slice(1);
+  };
+
   return (
     <div className="min-h-screen py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -186,39 +202,33 @@ function CatalogPage() {
             {t("nav.collection") || "Our Collection"}
           </h1>
           <p className="text-xl max-w-2xl mx-auto text-[#5A5A5A] leading-relaxed">
-            {t("catalog.subtitle") ||
-              "Discover our exquisite collection of premium silk garments."}
+            {t("catalog.subtitle") || "Discover our exquisite collection of premium silk garments."}
           </p>
         </div>
 
-        {/* ✅ COMPACT FILTER DROPDOWN - TOP RIGHT */}
+        {/* COMPACT FILTER DROPDOWN - TOP RIGHT */}
         <div className="flex justify-between items-center mb-16">
           {/* Filter Results */}
           <div className="text-lg text-[#5A5A5A]">
             <span className="font-semibold text-[#13293D]">
               {filteredProducts.length}
             </span>{" "}
-            products
+            {t("catalog.productsCount", { count: filteredProducts.length }) || "products"}
             {selectedCategory !== "all" && (
               <span className="ml-2 capitalize text-sm">
-                ({selectedCategory})
+                ({getCategoryName(selectedCategory)})
               </span>
             )}
           </div>
 
-          {/* Filter Dropdown - TOP RIGHT */}
+          {/* Filter Dropdown */}
           <div className="relative">
             <button
               onClick={() => setShowFilterDropdown(!showFilterDropdown)}
               className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl border border-[#13293D]/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all font-semibold uppercase tracking-wide text-sm text-[#13293D] hover:bg-[#E9E0D8]"
             >
               <Filter className="h-5 w-5" />
-              <span>
-                {selectedCategory === "all"
-                  ? t("catalog.all") || "All Products"
-                  : selectedCategory.charAt(0).toUpperCase() +
-                    selectedCategory.slice(1)}
-              </span>
+              <span>{getCategoryName(selectedCategory)}</span>
               <ChevronDown
                 className={`h-4 w-4 transition-transform ${showFilterDropdown ? "rotate-180" : ""}`}
               />
@@ -237,9 +247,7 @@ function CatalogPage() {
                         : "text-[#5A5A5A] hover:text-[#13293D]"
                     }`}
                   >
-                    {category === "all"
-                      ? t("catalog.all") || "All Products"
-                      : category.charAt(0).toUpperCase() + category.slice(1)}
+                    {getCategoryName(category)}
                   </button>
                 ))}
               </div>
@@ -252,7 +260,7 @@ function CatalogPage() {
           {currentProducts.map((product) => (
             <div key={product.id} className="group">
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-[#D9A441]/20 hover:border-[#D9A441]/40">
-                {/* Product Image */}
+                {/* Product Image - FIXED */}
                 <div className="h-80 w-full overflow-hidden bg-linear-to-br from-[#F6F3F0] to-[#E9E0D8] group-hover:from-[#E9E0D8] group-hover:to-[#D9A441]/10">
                   <img
                     src={product.image}
@@ -264,7 +272,7 @@ function CatalogPage() {
                 {/* Product Info */}
                 <div className="p-8">
                   <span className="inline-block bg-[#D9A441]/20 text-[#D9A441] px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
-                    {product.category}
+                    {getCategoryName(product.category)}
                   </span>
 
                   <h3 className="font-serif text-2xl text-[#13293D] mb-4 group-hover:text-[#D9A441] transition-colors line-clamp-2 leading-tight">
@@ -276,7 +284,7 @@ function CatalogPage() {
                       ${product.price}
                     </span>
                     <span className="text-sm text-[#5A5A5A] font-medium uppercase tracking-wide">
-                      In Stock
+                      {t("catalog.inStock") || "In Stock"}
                     </span>
                   </div>
 
@@ -287,8 +295,8 @@ function CatalogPage() {
                       addingProduct === product.id
                         ? "bg-[#5A5A5A]/80 cursor-not-allowed shadow-none scale-95"
                         : addedFeedback === product.id
-                          ? "bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-green-500/25 scale-[1.02]"
-                          : "bg-linear-to-r from-[#13293D] to-[#1A365D] hover:from-[#0F1E35] hover:to-[#13293D] hover:shadow-[#13293D]/25 hover:scale-[1.02]"
+                        ? "bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 shadow-green-500/25 scale-[1.02]"
+                        : "bg-linear-to-r from-[#13293D] to-[#1A365D] hover:from-[#0F1E35] hover:to-[#13293D] hover:shadow-[#13293D]/25 hover:scale-[1.02]"
                     }`}
                   >
                     {getButtonContent(product)}
@@ -304,9 +312,11 @@ function CatalogPage() {
           <div className="flex flex-col items-center gap-8">
             <div className="text-center text-[#5A5A5A]">
               <p className="text-lg">
-                Showing {indexOfFirstProduct + 1}-
-                {Math.min(indexOfLastProduct, filteredProducts.length)} of{" "}
-                {filteredProducts.length} products
+                {t("pagination.showing", {
+                  from: indexOfFirstProduct + 1,
+                  to: Math.min(indexOfLastProduct, filteredProducts.length),
+                  total: filteredProducts.length,
+                }) || `Showing ${indexOfFirstProduct + 1}-${Math.min(indexOfLastProduct, filteredProducts.length)} of ${filteredProducts.length} products`}
               </p>
             </div>
 
@@ -317,7 +327,7 @@ function CatalogPage() {
                 className="flex items-center gap-2 px-6 py-3 rounded-2xl border-2 border-[#13293D]/30 text-[#13293D] font-semibold uppercase tracking-wide hover:bg-[#E9E0D8] hover:border-[#13293D]/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg"
               >
                 <ChevronLeft className="h-5 w-5" />
-                {t('pagination.previous') || 'Previous'}
+                {t("pagination.previous") || "Previous"}
               </button>
 
               {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
@@ -325,8 +335,8 @@ function CatalogPage() {
                   currentPage <= 3
                     ? i + 1
                     : currentPage >= totalPages - 2
-                      ? totalPages - 4 + i
-                      : currentPage - 2 + i;
+                    ? totalPages - 4 + i
+                    : currentPage - 2 + i;
                 return (
                   <button
                     key={pageNum}
@@ -347,7 +357,7 @@ function CatalogPage() {
                 disabled={currentPage === totalPages}
                 className="flex items-center gap-2 px-6 py-3 rounded-2xl border-2 border-[#13293D]/30 text-[#13293D] font-semibold uppercase tracking-wide hover:bg-[#E9E0D8] hover:border-[#13293D]/50 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg"
               >
-                {t('pagination.next') || 'Next'}
+                {t("pagination.next") || "Next"}
                 <ChevronRight className="h-5 w-5" />
               </button>
             </div>

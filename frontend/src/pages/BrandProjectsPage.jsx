@@ -50,7 +50,7 @@ function BrandProjectsPage() {
             {t('brand.projects.subtitle')}
           </p>
         </div>
-        <div className="mt-4 flex items-center gap-2 sm:mt-0">
+        {/* <div className="mt-4 flex items-center gap-2 sm:mt-0">
           <button
             onClick={loadProjects}
             disabled={loading}
@@ -63,7 +63,7 @@ function BrandProjectsPage() {
             <Download className="h-4 w-4" />
             Export
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Status filters */}

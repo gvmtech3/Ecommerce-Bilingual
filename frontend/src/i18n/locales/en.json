@@ -40,7 +40,15 @@
   },
   "footer": {
     "line1": "© {{year}} Linces’CKF. All rights reserved.",
-    "line2": "Silk garments & manufacturing services."
+    "line2": "Silk garments & manufacturing services.",
+    "description": "Premium silk garments & bespoke manufacturing services.",
+    "quickLinks": "Quick Links",
+    "company": "Company",
+    "contactUs": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "address": "123 Silk Street, Fashion District"
   },
   "split": {
     "customersEyebrow": "For Customers",
@@ -233,5 +241,25 @@
     "viewOrders": "View Orders",
     "trackingInfo": "You will receive a confirmation email with your order number and tracking details shortly.",
     "orderNumber": "Order Number"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us. We'd love to hear from you.",
+    "getInTouch": "Get In Touch",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "addressLabel": "Address",
+    "email": "hello@lincesckf.com",
+    "phone": "+1 (555) 123-4567",
+    "addressLine1": "123 Silk Street",
+    "addressLine2": "Fashion District, NY 10001",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "success": "Message sent successfully!"
   }
 }

@@ -40,7 +40,15 @@
   },
   "footer": {
     "line1": "© {{year}} Linces’CKF. Todos los derechos reservados.",
-    "line2": "Prendas de seda y servicios de confección."
+    "line2": "Prendas de seda y servicios de confección.",
+    "description": "Prendas de seda premium y confección a medida.",
+    "quickLinks": "Enlaces Rápidos",
+    "company": "Empresa",
+    "contactUs": "Contáctanos",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "contact": "Contacto",
+    "address": "Calle Seda 123, Distrito Moda"
   },
   "split": {
     "customersEyebrow": "Para clientes",
@@ -234,5 +242,25 @@
     "viewOrders": "Ver Pedidos",
     "trackingInfo": "Recibirás un email de confirmación con el número de pedido y detalles de seguimiento en breve.",
     "orderNumber": "Número de Pedido"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Ponte en contacto. Nos encantaría saber de ti.",
+    "getInTouch": "Ponte en Contacto",
+    "emailLabel": "Correo",
+    "phoneLabel": "Teléfono",
+    "addressLabel": "Dirección",
+    "email": "hello@lincesckf.com",
+    "phone": "+1 (555) 123-4567",
+    "addressLine1": "Calle Seda 123",
+    "addressLine2": "Distrito Moda, NY 10001",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar Mensaje"
+    },
+    "success": "¡Mensaje enviado exitosamente!"
   }
 }

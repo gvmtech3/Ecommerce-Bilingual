@@ -1,16 +1,16 @@
-// src/components/layout/Navigation.jsx - DYNAMIC CART COUNT
+// src/components/layout/Navigation.jsx - ✅ About moved AFTER Services
 import { useState } from "react";
 import { ShoppingBag, Menu, X, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from "./LanguageToggle";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
-import { useCart } from "../../contexts/CartContext"; // ✅ CART CONTEXT
+import { useCart } from "../../contexts/CartContext";
 
 function Navigation() {
   const { t } = useTranslation();
   const { user, isAuthenticated, logout } = useAuth();
-  const { getCartCount } = useCart(); // ✅ DYNAMIC COUNT
+  const { getCartCount } = useCart();
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -40,21 +40,26 @@ function Navigation() {
     setMobileOpen(false);
   };
 
-  // Replace your ENTIRE isActive function with this:
-const isActive = (path) => {
-  // EXACT matches - prevents parent/child interference
-  const exactRoutes = ['/', '/services', '/customer', '/catalog', '/customer/quote', '/brand']
-  
-  if (exactRoutes.includes(path)) {
-    return location.pathname === path
+  const isActive = (path) => {
+    const exactRoutes = [
+      '/', 
+      '/services', 
+      '/about',      // ✅ POSITIONED AFTER SERVICES
+      '/contact',    
+      '/customer', 
+      '/catalog', 
+      '/customer/quote', 
+      '/brand'
+    ];
+    
+    if (exactRoutes.includes(path)) {
+      return location.pathname === path
+    }
+    
+    return location.pathname.startsWith(path)
   }
-  
-  // Nested/child routes use startsWith
-  return location.pathname.startsWith(path)
-}
 
-
-  const cartCount = getCartCount(); // ✅ LIVE COUNT
+  const cartCount = getCartCount();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#D9A441]/30 bg-[#E9E0D8]/90 backdrop-blur">
@@ -69,25 +74,38 @@ const isActive = (path) => {
           </span>
         </button>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - ✅ ABOUT AFTER SERVICES */}
         <nav className="hidden gap-8 md:flex">
-          {!isAuthenticated && (
-            <>
-              <button
-                onClick={() => handleNavClick("/")}
-                className={`hover:text-[#D9A441] ${isActive("/") ? "text-[#D9A441] font-semibold" : ""}`}
-              >
-                {t("nav.home")}
-              </button>
-              <button
-                onClick={() => handleNavClick("/services")}
-                className={`hover:text-[#D9A441] ${isActive("/services") ? "text-[#D9A441] font-semibold" : ""}`}
-              >
-                {t("nav.services")}
-              </button>
-            </>
-          )}
+          {/* Public Pages */}
+          <button
+            onClick={() => handleNavClick("/")}
+            className={`hover:text-[#D9A441] ${isActive("/") ? "text-[#D9A441] font-semibold" : ""}`}
+          >
+            {t("nav.home")}
+          </button>
+          
+          <button
+            onClick={() => handleNavClick("/services")}
+            className={`hover:text-[#D9A441] ${isActive("/services") ? "text-[#D9A441] font-semibold" : ""}`}
+          >
+            {t("nav.services")}
+          </button>
+          
+          <button
+            onClick={() => handleNavClick("/about")}
+            className={`hover:text-[#D9A441] ${isActive("/about") ? "text-[#D9A441] font-semibold" : ""}`}
+          >
+            {t("nav.about")}
+          </button>
+          
+          <button
+            onClick={() => handleNavClick("/contact")}
+            className={`hover:text-[#D9A441] ${isActive("/contact") ? "text-[#D9A441] font-semibold" : ""}`}
+          >
+            {t("footer.contactUs") || t("nav.contact") || "Contact"}
+          </button>
 
+          {/* Customer Pages */}
           {isCustomer && (
             <>
               <button
@@ -106,11 +124,12 @@ const isActive = (path) => {
                 onClick={() => handleNavClick("/customer/quote")}
                 className={`hover:text-[#D9A441] ${isActive("/customer/quote") ? "text-[#D9A441] font-semibold" : ""}`}
               >
-                {t("customer.requestQuote")} {/* ✅ NEW */}
+                {t("customer.requestQuote")}
               </button>
             </>
           )}
 
+          {/* Brand Pages */}
           {isBrand && (
             <div className="flex gap-4">
               {brandMenuItems.map((item) => (
@@ -161,7 +180,7 @@ const isActive = (path) => {
             </button>
           )}
 
-          {/* ✅ DYNAMIC CART BADGE - UPDATES INSTANTLY */}
+          {/* Cart Badge */}
           {isCustomer && cartCount > 0 && (
             <button
               onClick={() => handleNavClick("/cart")}
@@ -202,46 +221,84 @@ const isActive = (path) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - ✅ ABOUT AFTER SERVICES */}
       {mobileOpen && (
         <div className="border-t border-[#D9A441]/30 bg-[#F6F3F0] md:hidden">
           <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6">
+            {/* Public Pages */}
+            <button
+              onClick={() => handleNavClick("/")}
+              className={`py-3 px-4 rounded-xl font-medium ${isActive("/") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+            >
+              {t("nav.home")}
+            </button>
+            
+            <button
+              onClick={() => handleNavClick("/services")}
+              className={`py-3 px-4 rounded-xl font-medium ${isActive("/services") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+            >
+              {t("nav.services")}
+            </button>
+            
+            <button
+              onClick={() => handleNavClick("/about")}
+              className={`py-3 px-4 rounded-xl font-medium ${isActive("/about") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+            >
+              {t("nav.about")}
+            </button>
+            
+            <button
+              onClick={() => handleNavClick("/contact")}
+              className={`py-3 px-4 rounded-xl font-medium ${isActive("/contact") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+            >
+              {t("footer.contactUs") || "Contact"}
+            </button>
+
+            {/* Customer Pages */}
             {isCustomer && (
               <>
                 <button
                   onClick={() => handleNavClick("/customer")}
-                  className={`py-3 px-4 rounded-xl ${isActive("/customer") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+                  className={`py-3 px-4 rounded-xl font-medium ${isActive("/customer") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
                 >
                   {t("dashboard.customer")}
                 </button>
                 <button
                   onClick={() => handleNavClick("/catalog")}
-                  className={`py-3 px-4 rounded-xl ${isActive("/catalog") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+                  className={`py-3 px-4 rounded-xl font-medium ${isActive("/catalog") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
                 >
                   {t("nav.collection")}
                 </button>
                 <button
                   onClick={() => handleNavClick("/customer/quote")}
-                  className={`py-3 px-4 rounded-xl ${isActive("/customer/quote") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
+                  className={`py-3 px-4 rounded-xl font-medium ${isActive("/customer/quote") ? "bg-[#13293D] text-white" : "hover:bg-[#E9E0D8]"}`}
                 >
                   {t("customer.requestQuote")}
                 </button>
               </>
             )}
-            <div className="border-t border-[#D9A441]/20 pt-4">
+
+            {/* Auth Actions */}
+            <div className="border-t border-[#D9A441]/20 pt-4 mt-4">
               {!isAuthenticated ? (
                 <>
                   <button
                     onClick={() => handleNavClick("/auth?mode=signin")}
-                    className="block w-full py-3 px-4 text-left text-[#13293D] hover:bg-[#E9E0D8]"
+                    className="block w-full py-3 px-4 text-left text-[#13293D] hover:bg-[#E9E0D8] rounded-xl font-medium"
                   >
                     {t("nav.signIn")}
+                  </button>
+                  <button
+                    onClick={() => handleNavClick("/auth?mode=signup")}
+                    className="block w-full py-3 px-4 text-left bg-[#13293D] text-white rounded-xl font-medium mt-2"
+                  >
+                    {t("nav.signUp")}
                   </button>
                 </>
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="flex w-full items-center gap-3 py-3 px-4 text-left text-[#13293D] hover:bg-[#E9E0D8]"
+                  className="flex w-full items-center gap-3 py-3 px-4 text-left text-[#13293D] hover:bg-[#E9E0D8] rounded-xl font-medium"
                 >
                   <LogOut className="h-5 w-5" />
                   {t("nav.logout")}

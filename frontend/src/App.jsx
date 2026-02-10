@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, Link } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import ServicesPage from "./pages/ServicesPage";
 import AuthPage from "./pages/AuthPage";
 import CatalogPage from "./pages/CatalogPage";
@@ -28,6 +29,7 @@ function App() {
             {/* PUBLIC ROUTES */}
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/auth" element={<AuthPage />} />
 

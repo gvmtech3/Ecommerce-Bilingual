@@ -1,103 +1,77 @@
+// src/pages/AboutPage.jsx - ✅ Bilingual + Responsive
 import { useTranslation } from 'react-i18next'
-import About1 from '../assets/images/about_1.jpg'
-import About2 from '../assets/images/about_2.jpg'
+import image1 from '../assets/images/customer-silk.jpg'
 
 function AboutPage() {
   const { t } = useTranslation()
 
   return (
-    <div>
-      <section className="mx-auto max-w-6xl px-4 py-14 md:py-20">
-        {/* INTRO TEXT */}
-        <div className="max-w-3xl">
-          <p className="text-md font-semibold uppercase tracking-[0.25em] text-[#ed5e25]">
-            {t('about.eyebrow')}
-          </p>
-
-          <h1 className="mt-4 font-serif text-3xl text-[#13293D] md:text-4xl">
-            {t('about.title')}
+    <div className="min-h-screen py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Hero */}
+        <div className="text-center mb-24">
+          <h1 className="font-serif text-4xl md:text-6xl text-[#13293D] mb-6">
+            {t('about.title') || 'Crafted from silk, guided by story.'}
           </h1>
-
-          <p className="mt-4 text-sm text-[#5A5A5A] md:text-base">
-            {t('about.intro1')}
-          </p>
-
-          <p className="mt-3 text-sm text-[#5A5A5A] md:text-base">
-            {t('about.intro2')}
+          <p className="text-xl max-w-3xl mx-auto text-[#5A5A5A] leading-relaxed">
+            {t('about.eyebrow') || 'About Linces’CKF'}
           </p>
         </div>
 
-        {/* IMAGE + COPY SECTION */}
-        <div className="mt-14 flex flex-col gap-10 md:flex-row">
-          {/* LEFT */}
-          <div className="md:w-1/2">
-            <div className="overflow-hidden rounded-3xl border border-[#D9A441]/40">
-              <img
-                src={About1}
-                alt="Customer wearing a silk outfit from Linces’CKF"
-                className="h-105 w-full object-cover"
-              />
-            </div>
-
-            <h2 className="mt-5 font-serif text-xl text-[#13293D]">
-              {t('about.customerTitle')}
+        {/* Story Section */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#13293D] mb-8 leading-tight">
+              {t('story.title')}
             </h2>
-
-            <p className="mt-2 text-sm text-[#5A5A5A]">
-              {t('about.customerText')}
+            <p className="text-xl text-[#5A5A5A] mb-8 leading-relaxed">
+              {t('story.description')}
             </p>
-          </div>
-
-          {/* RIGHT */}
-          <div className="md:w-1/2">
-            <div className="overflow-hidden rounded-3xl border border-[#D9A441]/40">
-              <img
-                src={About2}
-                alt="Close-up of silk fabric used by Linces’CKF"
-                className="h-105 w-full object-cover"
-              />
+            <div className="space-y-6">
+              <div className="flex items-start gap-4 p-6 bg-white/50 backdrop-blur-sm rounded-3xl border border-[#D9A441]/20 hover:shadow-2xl transition-all">
+                <span className="bg-[#D9A441] text-white w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-xl shrink-0 mt-1">1</span>
+                <div>
+                  <h3 className="font-serif text-2xl text-[#13293D] mb-2">{t('about.intro1')}</h3>
+                  <p className="text-[#5A5A5A] leading-relaxed">{t('about.intro1')}</p>
+                </div>
+              </div>
             </div>
-
-            <h2 className="mt-5 font-serif text-xl text-[#13293D]">
-              {t('about.craftTitle')}
-            </h2>
-
-            <p className="mt-2 text-sm text-[#5A5A5A]">
-              {t('about.craftText')}
-            </p>
           </div>
+          <div className="relative">
+            <img 
+              src={image1} 
+              alt="Silk craftsmanship" 
+              className="w-full h-125 object-cover rounded-3xl shadow-2xl"
+            />
+          </div>
+        </section>
+
+        {/* Values Grid */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          <div className="text-center p-8 bg-white/50 backdrop-blur-sm rounded-3xl border border-[#D9A441]/20 hover:shadow-2xl transition-all">
+            <h3 className="font-serif text-2xl text-[#13293D] mb-4">{t('about.valuesQuietTitle')}</h3>
+            <p className="text-[#5A5A5A] leading-relaxed">{t('about.valuesQuietText')}</p>
+          </div>
+          <div className="text-center p-8 bg-white/50 backdrop-blur-sm rounded-3xl border border-[#D9A441]/20 hover:shadow-2xl transition-all">
+            <h3 className="font-serif text-2xl text-[#13293D] mb-4">{t('about.valuesResponsibleTitle')}</h3>
+            <p className="text-[#5A5A5A] leading-relaxed">{t('about.valuesResponsibleText')}</p>
+          </div>
+          <div className="text-center p-8 bg-white/50 backdrop-blur-sm rounded-3xl border border-[#D9A441]/20 hover:shadow-2xl transition-all">
+            <h3 className="font-serif text-2xl text-[#13293D] mb-4">{t('about.valuesCollabTitle')}</h3>
+            <p className="text-[#5A5A5A] leading-relaxed">{t('about.valuesCollabText')}</p>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <div className="text-center">
+          <a 
+            href="/auth" 
+            className="inline-block bg-linear-to-r from-[#13293D] to-[#1A365D] text-white px-12 py-6 rounded-2xl font-serif font-semibold uppercase tracking-widest text-xl shadow-xl hover:from-[#0F1E35] hover:shadow-[#13293D]/25 hover:scale-[1.02] transition-all duration-300"
+          >
+            {t('nav.collection')}
+          </a>
         </div>
-
-        {/* VALUES SECTION */}
-        <div className="mt-16 flex flex-col gap-8 md:flex-row">
-          <div className="flex-1 rounded-2xl border border-[#D9A441]/40 bg-[#F2EFEA] p-4">
-            <h3 className="font-serif text-lg text-[#13293D]">
-              {t('about.valuesQuietTitle')}
-            </h3>
-            <p className="mt-2 text-sm text-[#5A5A5A]">
-              {t('about.valuesQuietText')}
-            </p>
-          </div>
-
-          <div className="flex-1 rounded-2xl border border-[#D9A441]/40 bg-[#F2EFEA] p-4">
-            <h3 className="font-serif text-lg text-[#13293D]">
-              {t('about.valuesResponsibleTitle')}
-            </h3>
-            <p className="mt-2 text-sm text-[#5A5A5A]">
-              {t('about.valuesResponsibleText')}
-            </p>
-          </div>
-
-          <div className="flex-1 rounded-2xl border border-[#D9A441]/40 bg-[#F2EFEA] p-4">
-            <h3 className="font-serif text-lg text-[#13293D]">
-              {t('about.valuesCollabTitle')}
-            </h3>
-            <p className="mt-2 text-sm text-[#5A5A5A]">
-              {t('about.valuesCollabText')}
-            </p>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   )
 }

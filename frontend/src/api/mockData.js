@@ -1,5 +1,5 @@
 // src/api/mockData.js
-// Mirrors db.json exactly — drop db.json and json-server, this is the source of truth.
+// Source of truth for all in-memory data.
 // All IDs are strings for consistency across the app.
 
 export const USERS = [
@@ -89,17 +89,103 @@ export const PRODUCTS = [
   },
 ]
 
+// Two delivered orders so the demo user can immediately write reviews
 export const ORDERS = [
   {
     id: '1', userId: '1',
-    orderDate: '2026-02-01T10:00:00Z',
-    status: 'placed', total: 20300,
+    orderDate: '2026-01-10T10:00:00Z',
+    status: 'delivered',
+    total: 20300,
+    shippingInfo: { name: 'Clara Silva', email: 'customer@example.com', phone: '', address: '12 Calle Mayor, Madrid, Spain' },
+  },
+  {
+    id: '2', userId: '1',
+    orderDate: '2026-01-28T14:00:00Z',
+    status: 'delivered',
+    total: 38000,
+    shippingInfo: { name: 'Clara Silva', email: 'customer@example.com', phone: '', address: '12 Calle Mayor, Madrid, Spain' },
+  },
+  {
+    id: '3', userId: '1',
+    orderDate: '2026-02-15T09:30:00Z',
+    status: 'processing',
+    total: 24500,
   },
 ]
 
 export const ORDER_ITEMS = [
+  // Order 1 (delivered)
   { id: '1', orderId: '1', productId: '1', quantity: 1, priceAtPurchase: 7500 },
   { id: '2', orderId: '1', productId: '2', quantity: 1, priceAtPurchase: 12800 },
+  // Order 2 (delivered)
+  { id: '3', orderId: '2', productId: '4', quantity: 1, priceAtPurchase: 16500 },
+  { id: '4', orderId: '2', productId: '3', quantity: 2, priceAtPurchase: 9500 },
+  // Order 3 (processing — cannot review yet)
+  { id: '5', orderId: '3', productId: '5', quantity: 1, priceAtPurchase: 24500 },
+]
+
+// ── REVIEWS ──────────────────────────────────────────────────────────────────
+// productId: which product the review is for
+// userId:    who wrote it (used to check "already reviewed" and for ownership)
+// orderId:   which delivered order unlocked this review
+// verified:  always true for reviews created through the order flow
+export const REVIEWS = [
+  {
+    id: '1',
+    productId: '1',
+    userId: '1',
+    orderId: '1',
+    author: 'Clara Silva',
+    rating: 5,
+    title: 'Absolutely stunning',
+    titleEs: 'Absolutamente impresionante',
+    text: 'The silk feels incredibly luxurious. Perfect everyday piece.',
+    textEs: 'La seda se siente increíblemente lujosa. Pieza perfecta para el día a día.',
+    date: '2026-01-20T11:00:00Z',
+    verified: true,
+  },
+  {
+    id: '2',
+    productId: '3',
+    userId: null,   // anonymous seed review
+    orderId: null,
+    author: 'Sophie M.',
+    rating: 5,
+    title: 'Hand-painted beauty',
+    titleEs: 'Belleza pintada a mano',
+    text: 'Every brushstroke is visible. A true work of art.',
+    textEs: 'Cada pincelada es visible. Una verdadera obra de arte.',
+    date: '2026-01-28T09:00:00Z',
+    verified: false,
+  },
+  {
+    id: '3',
+    productId: '2',
+    userId: null,
+    orderId: null,
+    author: 'Elena R.',
+    rating: 5,
+    title: 'Perfect drape',
+    titleEs: 'Caída perfecta',
+    text: 'Perfect fit, the drape is beautiful. Will definitely order again.',
+    textEs: 'Talla perfecta, la caída es preciosa. Definitivamente volveré a pedir.',
+    date: '2026-01-30T15:00:00Z',
+    verified: false,
+  },
+  {
+    id: '4',
+    productId: '4',
+    userId: null,
+    orderId: null,
+    author: 'Marc B.',
+    rating: 4,
+    title: 'Premium quality',
+    titleEs: 'Calidad premium',
+    text: 'Great quality silk shirt. The buttons are a lovely detail.',
+    textEs: 'Camisa de seda de gran calidad. Los botones son un detalle precioso.',
+    date: '2026-02-01T08:30:00Z',
+    verified: false,
+  },
 ]
 
 export const SERVICE_INQUIRIES = [

@@ -5,27 +5,27 @@
 
 import {
   USERS, PROFILES, CATEGORIES, PRODUCTS,
-  ORDERS, ORDER_ITEMS, SERVICE_INQUIRIES, NOTIFICATIONS_DEFAULTS,
+  ORDERS, ORDER_ITEMS, SERVICE_INQUIRIES, REVIEWS,
+  NOTIFICATIONS_DEFAULTS,
 } from './mockData'
 
 // ── In-memory working copies (mutations survive for the session) ──────────────
-let users             = USERS.map(u => ({ ...u }))
-let profiles          = PROFILES.map(p => ({ ...p }))
-let categories        = CATEGORIES.map(c => ({ ...c }))
-let products          = PRODUCTS.map(p => ({ ...p }))
-let orders            = ORDERS.map(o => ({ ...o }))
-let orderItems        = ORDER_ITEMS.map(i => ({ ...i }))
-let serviceInquiries  = SERVICE_INQUIRIES.map(i => ({ ...i }))
-let notifications     = { ...NOTIFICATIONS_DEFAULTS }
+let users            = USERS.map(u => ({ ...u }))
+let profiles         = PROFILES.map(p => ({ ...p }))
+let categories       = CATEGORIES.map(c => ({ ...c }))
+let products         = PRODUCTS.map(p => ({ ...p }))
+let orders           = ORDERS.map(o => ({ ...o }))
+let orderItems       = ORDER_ITEMS.map(i => ({ ...i }))
+let serviceInquiries = SERVICE_INQUIRIES.map(i => ({ ...i }))
+let reviews          = REVIEWS.map(r => ({ ...r }))
+let notifications    = { ...NOTIFICATIONS_DEFAULTS }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-const ok  = (data) => Promise.resolve({ data })
-const err = (msg, status = 400) =>
-  Promise.reject({ response: { status, data: { message: msg } } })
-const delay = (ms = 150) => new Promise(r => setTimeout(r, ms))
-const newId = () => String(Date.now())
+const ok    = (data)           => Promise.resolve({ data })
+const err   = (msg, status=400) => Promise.reject({ response: { status, data: { message: msg } } })
+const delay = (ms = 150)       => new Promise(r => setTimeout(r, ms))
+const newId = ()               => String(Date.now())
 
-// ── Query-string parser: "/resource?key=val&key2=val2" ────────────────────────
 function parseUrl(url) {
   const [path, qs] = url.split('?')
   const params = {}
@@ -33,7 +33,6 @@ function parseUrl(url) {
   return { path, params }
 }
 
-// ── Filter a collection by all params present ─────────────────────────────────
 function filterBy(collection, params) {
   return collection.filter(item =>
     Object.entries(params).every(([k, v]) => String(item[k]) === String(v))
@@ -49,73 +48,64 @@ const mockClient = {
     const { path, params } = parseUrl(url)
     const hasParams = Object.keys(params).length > 0
 
-    // /users
     if (path === '/users') return ok(hasParams ? filterBy(users, params) : users)
-
-    // /users/:id
     const userM = path.match(/^\/users\/(\w+)$/)
     if (userM) {
       const u = users.find(u => u.id === userM[1])
       return u ? ok(u) : err('User not found', 404)
     }
 
-    // /profiles
     if (path === '/profiles') return ok(hasParams ? filterBy(profiles, params) : profiles)
-
-    // /profiles/:id
     const profileM = path.match(/^\/profiles\/(\w+)$/)
     if (profileM && !path.startsWith('/profiles/notifications')) {
       const p = profiles.find(p => p.id === profileM[1])
       return p ? ok(p) : err('Profile not found', 404)
     }
-
-    // /profiles/notifications/:userId
     if (path.startsWith('/profiles/notifications/')) return ok(notifications)
 
-    // /categories
     if (path === '/categories') return ok(hasParams ? filterBy(categories, params) : categories)
-
-    // /categories/:id
     const catM = path.match(/^\/categories\/(\w+)$/)
     if (catM) {
       const c = categories.find(c => c.id === catM[1])
       return c ? ok(c) : err('Category not found', 404)
     }
 
-    // /products
     if (path === '/products') return ok(hasParams ? filterBy(products, params) : products)
-
-    // /products/:id
     const prodM = path.match(/^\/products\/(\w+)$/)
     if (prodM) {
       const p = products.find(p => p.id === prodM[1])
       return p ? ok(p) : err('Product not found', 404)
     }
 
-    // /orders
     if (path === '/orders') return ok(hasParams ? filterBy(orders, params) : orders)
-
-    // /orders/:id
     const orderM = path.match(/^\/orders\/(\w+)$/)
     if (orderM) {
       const o = orders.find(o => o.id === orderM[1])
       return o ? ok(o) : err('Order not found', 404)
     }
 
-    // /orderItems
     if (path === '/orderItems') return ok(hasParams ? filterBy(orderItems, params) : orderItems)
 
-    // /serviceInquiries
-    if (path === '/serviceInquiries') return ok(hasParams ? filterBy(serviceInquiries, params) : serviceInquiries)
+    // ── Reviews ───────────────────────────────────────────────────────────
+    // GET /reviews                    → all reviews
+    // GET /reviews?productId=X        → reviews for a product
+    // GET /reviews?userId=X           → reviews by a user
+    // GET /reviews?productId=X&userId=Y → check if user reviewed a product
+    if (path === '/reviews') return ok(hasParams ? filterBy(reviews, params) : reviews)
+    const reviewM = path.match(/^\/reviews\/(\w+)$/)
+    if (reviewM) {
+      const r = reviews.find(r => r.id === reviewM[1])
+      return r ? ok(r) : err('Review not found', 404)
+    }
 
-    // /serviceInquiries/:id
+    if (path === '/serviceInquiries') return ok(hasParams ? filterBy(serviceInquiries, params) : serviceInquiries)
     const inqM = path.match(/^\/serviceInquiries\/(\w+)$/)
     if (inqM) {
       const i = serviceInquiries.find(i => i.id === inqM[1])
       return i ? ok(i) : err('Inquiry not found', 404)
     }
 
-    // Legacy aliases used by older pages
+    // Legacy aliases
     if (path === '/inquiries') return ok(hasParams ? filterBy(serviceInquiries, params) : serviceInquiries)
     const inqLegM = path.match(/^\/inquiries\/(\w+)$/)
     if (inqLegM) {
@@ -145,12 +135,7 @@ const mockClient = {
     }
 
     if (path === '/orders') {
-      const rec = {
-        id: newId(),
-        orderDate: new Date().toISOString(),
-        status: 'placed',
-        ...data,
-      }
+      const rec = { id: newId(), orderDate: new Date().toISOString(), status: 'placed', ...data }
       orders.push(rec)
       return ok(rec)
     }
@@ -161,13 +146,26 @@ const mockClient = {
       return ok(rec)
     }
 
-    if (path === '/serviceInquiries' || path === '/inquiries') {
+    // ── POST /reviews ─────────────────────────────────────────────────────
+    if (path === '/reviews') {
+      // Prevent duplicate: one review per user per product
+      const existing = reviews.find(
+        r => String(r.productId) === String(data.productId) &&
+             String(r.userId)    === String(data.userId)
+      )
+      if (existing) return err('You have already reviewed this product.', 409)
       const rec = {
-        id: newId(),
-        createdAt: new Date().toISOString(),
-        status: 'pending',
+        id:       newId(),
+        date:     new Date().toISOString(),
+        verified: true,
         ...data,
       }
+      reviews.push(rec)
+      return ok(rec)
+    }
+
+    if (path === '/serviceInquiries' || path === '/inquiries') {
+      const rec = { id: newId(), createdAt: new Date().toISOString(), status: 'pending', ...data }
       serviceInquiries.push(rec)
       return ok(rec)
     }
@@ -180,10 +178,8 @@ const mockClient = {
     await delay()
     const { path } = parseUrl(url)
 
-    // /users/:id/password
     if (path.match(/^\/users\/\w+\/password$/)) return ok({ success: true })
 
-    // /users/:id
     const userM = path.match(/^\/users\/(\w+)$/)
     if (userM) {
       const idx = users.findIndex(u => u.id === userM[1])
@@ -192,7 +188,6 @@ const mockClient = {
       return ok(users[idx])
     }
 
-    // /profiles/:id
     const profileM = path.match(/^\/profiles\/(\w+)$/)
     if (profileM && !path.startsWith('/profiles/notifications')) {
       const idx = profiles.findIndex(p => p.id === profileM[1])
@@ -201,13 +196,11 @@ const mockClient = {
       return ok(profiles[idx])
     }
 
-    // /profiles/notifications/:userId
     if (path.startsWith('/profiles/notifications/')) {
       notifications = { ...notifications, ...data }
       return ok(notifications)
     }
 
-    // /products/:id
     const prodM = path.match(/^\/products\/(\w+)$/)
     if (prodM) {
       const idx = products.findIndex(p => p.id === prodM[1])
@@ -216,7 +209,6 @@ const mockClient = {
       return ok(products[idx])
     }
 
-    // /orders/:id
     const orderM = path.match(/^\/orders\/(\w+)$/)
     if (orderM) {
       const idx = orders.findIndex(o => o.id === orderM[1])
@@ -225,7 +217,15 @@ const mockClient = {
       return ok(orders[idx])
     }
 
-    // /serviceInquiries/:id
+    // PATCH /reviews/:id
+    const reviewM = path.match(/^\/reviews\/(\w+)$/)
+    if (reviewM) {
+      const idx = reviews.findIndex(r => r.id === reviewM[1])
+      if (idx === -1) return err('Review not found', 404)
+      reviews[idx] = { ...reviews[idx], ...data }
+      return ok(reviews[idx])
+    }
+
     const inqM = path.match(/^\/serviceInquiries\/(\w+)$/)
     if (inqM) {
       const idx = serviceInquiries.findIndex(i => i.id === inqM[1])
@@ -274,6 +274,10 @@ const mockClient = {
 
     const orderM = path.match(/^\/orders\/(\w+)$/)
     if (orderM) { orders = orders.filter(o => o.id !== orderM[1]); return ok({ success: true }) }
+
+    // DELETE /reviews/:id
+    const reviewM = path.match(/^\/reviews\/(\w+)$/)
+    if (reviewM) { reviews = reviews.filter(r => r.id !== reviewM[1]); return ok({ success: true }) }
 
     const inqM = path.match(/^\/serviceInquiries\/(\w+)$/)
     if (inqM) { serviceInquiries = serviceInquiries.filter(i => i.id !== inqM[1]); return ok({ success: true }) }

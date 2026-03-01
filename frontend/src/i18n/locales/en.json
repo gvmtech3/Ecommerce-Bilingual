@@ -9,6 +9,28 @@
     "logout": "Logout",
     "email": "Email"
   },
+  "review": {
+    "writeReview": "Review",
+    "yourRating": "Your rating",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Summarise your experience…",
+    "bodyLabel": "Your review",
+    "bodyPlaceholder": "What did you love? Quality, fit, feel…",
+    "submit": "Submit Review",
+    "submitting": "Submitting…",
+    "cancel": "Cancel",
+    "reviewed": "Reviewed",
+    "noReviews": "No reviews yet",
+    "beFirst": "Be the first to review this product",
+    "purchaseToReview": "Purchase and receive your order to leave a review.",
+    "verifiedBadge": "Verified purchase",
+    "deliveredPromptTitle": "How was your order?",
+    "deliveredPromptBody": "Share your experience and help others.",
+    "errorRating": "Please select a star rating.",
+    "errorBody": "Please write a short review.",
+    "errorDuplicate": "You have already reviewed this product.",
+    "errorGeneric": "Something went wrong. Please try again."
+  },
   "categories": {
     "eyebrow": "Shop by Category",
     "title": "Find Your Silk",

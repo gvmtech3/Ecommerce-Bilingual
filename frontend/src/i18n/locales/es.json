@@ -9,6 +9,28 @@
     "logout": "Cerrar sesión",
     "email": "Correo"
   },
+  "review": {
+    "writeReview": "Reseña",
+    "yourRating": "Tu valoración",
+    "titleLabel": "Título",
+    "titlePlaceholder": "Resume tu experiencia…",
+    "bodyLabel": "Tu reseña",
+    "bodyPlaceholder": "¿Qué te gustó? Calidad, talla, tacto…",
+    "submit": "Enviar Reseña",
+    "submitting": "Enviando…",
+    "cancel": "Cancelar",
+    "reviewed": "Reseñado",
+    "noReviews": "Sin reseñas aún",
+    "beFirst": "Sé el primero en reseñar este producto",
+    "purchaseToReview": "Compra y recibe tu pedido para dejar una reseña.",
+    "verifiedBadge": "Compra verificada",
+    "deliveredPromptTitle": "¿Qué tal tu pedido?",
+    "deliveredPromptBody": "Comparte tu experiencia y ayuda a otros.",
+    "errorRating": "Por favor, selecciona una valoración de estrellas.",
+    "errorBody": "Por favor, escribe una breve reseña.",
+    "errorDuplicate": "Ya has reseñado este producto.",
+    "errorGeneric": "Algo salió mal. Por favor, inténtalo de nuevo."
+  },
   "categories": {
     "eyebrow": "Comprar por Categoría",
     "title": "Encuentra Tu Seda",

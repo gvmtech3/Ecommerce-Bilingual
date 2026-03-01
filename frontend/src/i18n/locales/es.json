@@ -9,6 +9,27 @@
     "logout": "Cerrar sesión",
     "email": "Correo"
   },
+  "categories": {
+    "eyebrow": "Comprar por Categoría",
+    "title": "Encuentra Tu Seda",
+    "viewAll": "Ver todo"
+  },
+  "offers": {
+    "badge": "Nuevo",
+    "message": "Colección Primavera/Verano 2025 recién llegada — explora piezas de seda hechas a mano",
+    "cta": "Comprar Ahora"
+  },
+  "ai": {
+    "eyebrow": "Seleccionado Para Ti",
+    "title": "Recomendaciones con IA",
+    "subtitle": "Dinos qué necesitas y encontraremos tu combinación perfecta de seda.",
+    "inputPlaceholder": "ej. un regalo, ocasión de verano, ropa de trabajo…",
+    "searchBtn": "Buscar",
+    "filterEveryday": "Diario",
+    "filterFormal": "Formal",
+    "filterGift": "Regalo",
+    "filterWork": "Trabajo"
+  },
   "dashboard": {
     "customer": "Panel",
     "brand": "Portal de Marca",
@@ -25,6 +46,11 @@
     "items": "Artículos",
     "total": "Total",
     "status": "Estado",
+    "filterHintMonth": "Mostrando pedidos de los últimos 30 días.",
+    "filterHintYear": "Mostrando pedidos de los últimos 365 días.",
+    "noOrdersInRange": "Sin pedidos en este período",
+    "noOrdersRangeHint": "Prueba a seleccionar un rango de tiempo más amplio.",
+    "showAll": "Ver todos los pedidos",
     "statuses": {
       "delivered": "Entregado",
       "processing": "Procesando",
@@ -36,7 +62,12 @@
     "title": "Seda atemporal para una elegancia moderna",
     "description": "Linces’CKF une piezas de seda hechas a mano y servicios de confección a medida en una experiencia bilingüe.",
     "primaryCta": "Ver colección",
-    "secondaryCta": "Descubrir servicios"
+    "secondaryCta": "Descubrir servicios",
+    "badge1": "Hecho a mano",
+    "badge2": "Seda Premium",
+    "badge3": "Servicio Bilingüe",
+    "newCollection": "Nueva Colección",
+    "season": "Primavera / Verano 2025"
   },
   "footer": {
     "line1": "© {{year}} Linces’CKF. Todos los derechos reservados.",
@@ -58,13 +89,24 @@
     "brandsEyebrow": "Para marcas",
     "brandsTitle": "Confección B2B en seda",
     "brandsDescription": "Colabora con nuestro atelier para confección premium en seda adaptada a tu etiqueta.",
-    "brandsCta": "Explorar servicios"
+    "brandsCta": "Explorar servicios",
+    "eyebrow": "¿Para Quién Es?",
+    "sectionTitle": "Un Atelier, Dos Experiencias",
+    "customerPerk1": "Blusas, vestidos y pañuelos de seda curados",
+    "customerPerk2": "Nuevos drops cada temporada",
+    "customerPerk3": "Pago seguro y seguimiento de pedidos",
+    "brandPerk1": "Muestrarios, lotes pequeños y producción recurrente",
+    "brandPerk2": "Patronaje técnico y experiencia en tejidos",
+    "brandPerk3": "Plazos claros y comunicación dedicada"
   },
   "story": {
     "eyebrow": "Sobre Linces’CKF",
     "title": "Tejido en seda, guiado por historias.",
     "description": "Cada prenda está pensada para acompañarte — del atelier al día a día — con atención al detalle, suavidad y durabilidad.",
-    "cta": "Conoce nuestra historia"
+    "cta": "Conoce nuestra historia",
+    "stat1": "Seda",
+    "stat2": "Idiomas",
+    "stat3": "Artesanía"
   },
   "about": {
     "eyebrow": "Sobre Linces’CKF",
@@ -127,19 +169,64 @@
     "imageText": "Desde colecciones limitadas hasta piezas a medida para marcas, nuestro atelier gira en torno a la seda y alianzas a largo plazo."
   },
   "brand": {
+    "newInquiry": "Nueva Solicitud",
+    "noInquiries": "Aún no hay solicitudes",
+    "noInquiriesHint": "Envía una solicitud de presupuesto para comenzar.",
+    "noInquiriesFilter": "No hay solicitudes en esta categoría",
+    "noInquiriesFilterHint": "Prueba con un filtro diferente.",
+    "filter": {
+      "all": "Todas",
+      "pending": "Pendiente",
+      "approved": "Aprobadas",
+      "completed": "Completadas"
+    },
+    "pagination": {
+      "page": "Página"
+    },
+    "statuses": {
+      "pending": "Pendiente",
+      "inReview": "En Revisión",
+      "approved": "Aprobado",
+      "completed": "Completado",
+      "rejected": "Rechazado",
+      "production": "En Producción"
+    },
+    "inquiry": {
+      "noDescription": "Sin descripción",
+      "pieces": "uds",
+      "descriptionLabel": "Brief del Proyecto"
+    },
     "overview": {
       "title": "Portal de Marca",
       "subtitle": "Gestiona tus solicitudes de servicio y sigue tus proyectos.",
       "stats": {
         "total": "Solicitudes Totales",
         "pending": "En Revisión",
-        "completed": "Completadas"
+        "completed": "Completadas",
+        "approved": "Aprobadas"
       },
       "recent": "Solicitudes Recientes"
     },
     "quote": {
       "title": "Solicitar Cotización",
       "subtitle": "Envía una nueva solicitud de servicio para tus necesidades de confección en seda.",
+      "successTitle": "¡Solicitud Enviada!",
+      "successMsg": "Revisaremos tu solicitud y te responderemos en un plazo de 48 horas.",
+      "viewDashboard": "Ver Panel",
+      "newRequest": "Nueva Solicitud",
+      "formHeading": "Detalles del Proyecto",
+      "formSubheading": "Completa con el mayor detalle posible para obtener una cotización más rápida y precisa.",
+      "quantityPlaceholder": "ej. 50 piezas",
+      "descriptionPlaceholder": "Describe tu proyecto: tipos de prenda, tallas, colores, acabados…",
+      "fabricsPlaceholder": "ej. charmeuse 19mm, sand wash",
+      "optional": "(opcional)",
+      "chars": "chars",
+      "whatHappensNext": "¿Qué pasa a continuación?",
+      "submitting": "Enviando…",
+      "privacyNote": "Tu brief se trata con total confidencialidad.",
+      "trustNote": "Todas las solicitudes se revisan en 48 horas. Tratamos tu brief con confidencialidad.",
+      "refLabel": "Número de referencia",
+      "responseValue": "En menos de 48 horas",
       "form": {
         "quantity": "Cantidad",
         "description": "Descripción",
@@ -151,12 +238,14 @@
     "projects": {
       "title": "Mis Proyectos",
       "subtitle": "Sigue todas tus solicitudes de servicio.",
+      "viewDetails": "Detalles",
       "status": {
         "pending": "Pendiente",
         "in_review": "En Revisión",
-        "approved": "Aprobada",
+        "approved": "Aprobado",
         "production": "Producción",
-        "completed": "Completada"
+        "completed": "Completado",
+        "rejected": "Rechazado"
       },
       "empty": "Aún no tienes proyectos. Comienza solicitando una cotización."
     },
@@ -179,6 +268,58 @@
     "all": "Todos los Productos",
     "productsCount": "{{count}} productos",
     "inStock": "En Stock",
+    "pageTitle": "Nuestra Colección de Seda",
+    "searchPlaceholder": "Buscar productos…",
+    "sort": "Ordenar",
+    "sortDefault": "Destacados",
+    "sortPriceAsc": "Precio: menor a mayor",
+    "sortPriceDesc": "Precio: mayor a menor",
+    "sortNameAz": "Nombre: A–Z",
+    "clearAll": "Borrar todo",
+    "results": "resultados",
+    "loadingMore": "Cargando más…",
+    "allLoaded": "Todos los productos mostrados",
+    "outOfStock": "Sin Stock",
+    "onlyLeft": "Solo quedan {{count}}",
+    "noResults": "No se encontraron productos",
+    "noResultsHint": "Prueba a ajustar los filtros o el término de búsqueda.",
+    "productNotFound": "Producto no encontrado",
+    "backToCollection": "Volver a la Colección",
+    "color": "Color",
+    "size": "Talla",
+    "selectSize": "— elige una",
+    "sizeGuide": "Guía de tallas",
+    "sizeRequired": "* Por favor, selecciona una talla antes de añadir al carrito",
+    "selectSizeFirst": "Selecciona una talla",
+    "quantity": "Cantidad",
+    "reviews": "reseñas",
+    "freeShipping": "Envío Gratis",
+    "easyReturns": "Devoluciones 30 días",
+    "securePayment": "Pago Seguro",
+    "tab_description": "Descripción",
+    "tab_details": "Detalles",
+    "tab_reviews": "Reseñas",
+    "detail1": "100% seda pura",
+    "detail2": "Limpieza en seco o lavado a mano suave",
+    "detail3": "Fabricado en nuestro atelier — producción en pequeños lotes",
+    "detail4": "La modelo mide 175 cm y lleva la talla S",
+    "material": "Material",
+    "materialValue": "100% Seda Mulberry",
+    "weight": "Peso",
+    "weightValue": "16 momme",
+    "origin": "Origen",
+    "originValue": "Fabricado en nuestro atelier",
+    "care": "Cuidado",
+    "careValue": "Limpieza en seco recomendada",
+    "stock": "Stock",
+    "units": "unidades",
+    "relatedProducts": "Productos Relacionados",
+    "youMayAlsoLike": "También te puede gustar",
+    "tags": {
+      "new": "Nuevo",
+      "bestseller": "Más Vendido",
+      "trending": "Tendencia"
+    },
     "categories": {
       "blouses": "Blusas",
       "scarves": "Pañuelos",
@@ -194,6 +335,17 @@
     "quote": {
       "title": "Solicitar Cotización Personalizada",
       "subtitle": "Necesitas algo hecho a medida? Envía tus requisitos y te responderemos en 24 horas.",
+      "errors": {
+        "quantity": "Por favor, introduce una cantidad válida.",
+        "description": "Por favor, describe tu proyecto.",
+        "deadline": "Por favor, selecciona una fecha límite.",
+        "submit": "Error al enviar. Por favor, inténtalo de nuevo."
+      },
+      "successTitle": "¡Solicitud de Presupuesto Enviada!",
+      "successMsg": "Revisaremos tu solicitud y nos pondremos en contacto en menos de 24 horas.",
+      "refNumber": "Referencia",
+      "responseTime": "Tiempo de respuesta",
+      "responseValue": "En menos de 24 horas",
       "form": {
         "name": "Tu Nombre",
         "email": "Correo Electrónico",
@@ -217,6 +369,12 @@
     "subtotal": "Subtotal",
     "shipping": "Envío",
     "total": "Total",
+    "eyebrow": "Tu Pedido",
+    "item": "artículo",
+    "perUnit": "/ unidad",
+    "continueShopping": "Seguir comprando",
+    "freeShipping": "GRATIS",
+    "shippingDetails": "Datos de Envío",
     "form": {
       "fullName": "Nombre Completo",
       "email": "Correo Electrónico",
@@ -241,7 +399,14 @@
     "continueShopping": "Continuar Comprando",
     "viewOrders": "Ver Pedidos",
     "trackingInfo": "Recibirás un email de confirmación con el número de pedido y detalles de seguimiento en breve.",
-    "orderNumber": "Número de Pedido"
+    "orderNumber": "Número de Pedido",
+    "eyebrow": "Pedido Confirmado",
+    "timeline": "Estado del Pedido",
+    "step1": "Realizado",
+    "step2": "Confirmado",
+    "step3": "Empaquetado",
+    "step4": "Enviado",
+    "step5": "Entregado"
   },
   "contact": {
     "title": "Contáctanos",
@@ -254,6 +419,20 @@
     "phone": "+1 (555) 123-4567",
     "addressLine1": "Calle Seda 123",
     "addressLine2": "Distrito Moda, NY 10001",
+    "eyebrow": "Hablemos",
+    "hoursLabel": "Horario",
+    "hoursValue": "Lun – Vie, 9 AM – 6 PM EST",
+    "followUs": "Síguenos",
+    "responseTime": "Respondemos en un plazo de 24 horas.",
+    "formTitle": "Enviar un Mensaje",
+    "successTitle": "¡Mensaje Enviado!",
+    "sendAnother": "Enviar otro mensaje",
+    "sending": "Enviando…",
+    "subjectPlaceholder": "ej. Consulta sobre pedido personalizado de seda",
+    "messagePlaceholder": "Cuéntanos sobre tu proyecto, pregunta o idea…",
+    "privacyNote": "Respetamos tu privacidad. Tu información nunca se comparte.",
+    "findUs": "Encuéntranos",
+    "getDirections": "Cómo llegar",
     "form": {
       "name": "Nombre",
       "email": "Correo",
@@ -262,5 +441,52 @@
       "submit": "Enviar Mensaje"
     },
     "success": "¡Mensaje enviado exitosamente!"
+  },
+  "settings": {
+    "navLabel": "Configuración",
+    "eyebrow": "Mi Cuenta",
+    "title": "Configuración de Cuenta",
+    "subtitle": "Gestiona tu perfil, seguridad y preferencias de notificaciones.",
+    "profileTitle": "Información de Perfil",
+    "profileSubtitle": "Actualiza tus datos personales",
+    "profileSaved": "¡Perfil actualizado exitosamente!",
+    "saveError": "Algo salió mal. Intenta de nuevo.",
+    "fullName": "Nombre Completo",
+    "readOnly": "(solo lectura)",
+    "saving": "Guardando…",
+    "website": "Sitio Web",
+    "industry": "Industria",
+    "companySize": "Tamaño de Empresa",
+    "employees": "empleados",
+    "passwordTitle": "Cambiar Contraseña",
+    "passwordSubtitle": "Mantén tu cuenta segura",
+    "currentPassword": "Contraseña Actual",
+    "newPassword": "Nueva Contraseña",
+    "confirmPassword": "Confirmar Nueva Contraseña",
+    "passwordMismatch": "Las nuevas contraseñas no coinciden.",
+    "passwordShort": "La contraseña debe tener al menos 8 caracteres.",
+    "passwordError": "La contraseña actual es incorrecta.",
+    "passwordSaved": "¡Contraseña cambiada exitosamente!",
+    "updatePassword": "Actualizar Contraseña",
+    "notifTitle": "Preferencias de Notificaciones",
+    "notifSubtitle": "Elige cómo te contactamos",
+    "notifSaved": "¡Preferencias de notificaciones guardadas!",
+    "saveNotifs": "Guardar Preferencias",
+    "emailNotifs": "Notificaciones por Email",
+    "emailOrders": "Actualizaciones de pedidos",
+    "emailOrdersDesc": "Confirmaciones, envíos y estado de entrega",
+    "emailQuotes": "Respuestas de cotizaciones",
+    "emailQuotesDesc": "Cuando tus solicitudes de cotización reciban respuesta",
+    "emailProjects": "Hitos del proyecto",
+    "emailProjectsDesc": "Actualizaciones de muestrario, producción y entrega",
+    "emailMarketing": "Noticias y promociones",
+    "emailMarketingDesc": "Nuevas colecciones, ofertas y novedades de marca",
+    "smsNotifs": "Notificaciones por SMS",
+    "smsOrders": "Alertas de pedidos por SMS",
+    "smsOrdersDesc": "Mensajes de texto para cambios clave en el estado del pedido",
+    "smsQuotes": "Alertas de cotizaciones por SMS",
+    "smsQuotesDesc": "Mensaje cuando una respuesta de cotización está lista",
+    "smsMarketing": "Promociones por SMS",
+    "smsMarketingDesc": "Ofertas exclusivas y alertas de nuevas llegadas"
   }
 }

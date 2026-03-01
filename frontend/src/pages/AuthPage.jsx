@@ -168,6 +168,7 @@ function SigninForm({ loginAsCustomer, loginAsBrand, navigate }) {
         const role = localStorage.getItem('signupRole') || matchedUser.role
         
         if (role === 'customer') {
+          
           loginAsCustomer()
           navigate('/customer')
         } else {

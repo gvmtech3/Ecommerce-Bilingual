@@ -18,6 +18,8 @@ import ProtectedRoute from "./components/layout/ProtectedRoute";
 import { CartProvider } from "./contexts/CartContext";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import CustomerQuotePage from "./pages/CustomerQuotePage";
+import AccountSettingsPage from "./pages/AccountSettingsPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 // ✅ BrandLayout import REMOVED
 
 function App() {
@@ -60,6 +62,14 @@ function App() {
               }
             />
             <Route
+              path="/catalog/:id"
+              element={
+                <ProtectedRoute>
+                  <ProductDetailPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/cart"
               element={
                 <ProtectedRoute requireCustomer>
@@ -94,10 +104,10 @@ function App() {
               }
             />
             <Route
-              path="/brand/profile"
+              path="/settings"
               element={
-                <ProtectedRoute requireCustomer={false}>
-                  <BrandProfilePage />
+                <ProtectedRoute>
+                  <AccountSettingsPage />
                 </ProtectedRoute>
               }
             />

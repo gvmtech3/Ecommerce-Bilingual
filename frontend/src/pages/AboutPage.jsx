@@ -61,16 +61,6 @@ function AboutPage() {
             <p className="text-[#5A5A5A] leading-relaxed">{t('about.valuesCollabText')}</p>
           </div>
         </section>
-
-        {/* CTA */}
-        <div className="text-center">
-          <a 
-            href="/auth" 
-            className="inline-block bg-linear-to-r from-[#13293D] to-[#1A365D] text-white px-12 py-6 rounded-2xl font-serif font-semibold uppercase tracking-widest text-xl shadow-xl hover:from-[#0F1E35] hover:shadow-[#13293D]/25 hover:scale-[1.02] transition-all duration-300"
-          >
-            {t('nav.collection')}
-          </a>
-        </div>
       </div>
     </div>
   )

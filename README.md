@@ -8,7 +8,7 @@
 
 **A bilingual (English / Spanish) premium silk garment platform combining direct-to-consumer retail with B2B manufacturing services.**
 
-[Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started) · [Authentication](#-authentication) · [Bilingual Support](#-bilingual-support) · [Project Structure](#-project-structure) · [Roadmap](#-roadmap)
+[Features](#-features) · [Tech Stack](#-tech-stack) · [Getting Started](#-getting-started) · [Authentication](#-authentication) · [Bilingual Support](#-bilingual-support) · [Project Structure](#-project-structure)
 
 ---
 
@@ -272,34 +272,6 @@ The project ships with a complete in-memory API that mirrors a production REST A
 | `/brand/projects` | Project board with infinite scroll | Brand |
 | `/contact` | Contact page with map | Public |
 | `/settings` | Account settings | Authenticated |
-
----
-
-## 🔮 Roadmap
-
-### Phase 2 — Backend Integration
-- [ ] Connect to a real REST API (Node.js / Django / Laravel)
-- [ ] Replace mock auth with JWT + refresh token flow
-- [ ] Persist cart and orders to a database
-- [ ] Real file uploads for brand briefs and product images
-
-### Phase 3 — Payments
-- [ ] Stripe integration for D2C checkout
-- [ ] Invoice generation for B2B orders
-- [ ] Multi-currency support (USD, EUR, MXN)
-
-### Phase 4 — Admin
-- [ ] Admin dashboard for order management
-- [ ] Brand inquiry pipeline with status updates
-- [ ] Product and inventory management UI
-- [ ] Analytics dashboard (sales, inquiries, conversion)
-
-### Phase 5 — Growth
-- [ ] Wishlist and saved items
-- [ ] Email notifications (order confirmation, quote updates)
-- [ ] Customer review submission
-- [ ] SEO optimisation and meta tags
-- [ ] PWA support for mobile
 
 ---
 

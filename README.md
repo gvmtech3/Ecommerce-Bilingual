@@ -90,12 +90,13 @@ Make sure you have the following installed:
 ### Installation
 
 ```bash
+# 1. get into frontend folder
 cd frontend
 
-# 3. Install dependencies
+# 2. Install dependencies
 npm install
 
-# 4. Start the development server
+# 2. Start the development server
 npm run dev
 ```
 

@@ -510,5 +510,10 @@
     "smsQuotesDesc": "Mensaje cuando una respuesta de cotización está lista",
     "smsMarketing": "Promociones por SMS",
     "smsMarketingDesc": "Ofertas exclusivas y alertas de nuevas llegadas"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe.",
+    "goHome": "Ir al inicio"
   }
 }

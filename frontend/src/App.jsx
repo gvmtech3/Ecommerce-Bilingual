@@ -20,6 +20,7 @@ import OrderSuccessPage from "./pages/OrderSuccessPage";
 import CustomerQuotePage from "./pages/CustomerQuotePage";
 import AccountSettingsPage from "./pages/AccountSettingsPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import NotFoundPage from "./pages/NotFoundPage";
 // ✅ BrandLayout import REMOVED
 
 function App() {
@@ -113,27 +114,7 @@ function App() {
             />
 
             {/* 404 FALLBACK */}
-            <Route
-              path="*"
-              element={
-                <div className="mx-auto flex min-h-[100vh-4rem] max-w-4xl items-center justify-center px-4 py-12 text-[#181818]">
-                  <div className="text-center">
-                    <h1 className="font-serif text-3xl text-[#13293D]">
-                      Page not found
-                    </h1>
-                    <p className="mt-4 text-sm text-[#5A5A5A]">
-                      The page you are looking for does not exist.
-                    </p>
-                    <Link
-                      to="/"
-                      className="mt-6 inline-block rounded-full border border-[#13293D] px-6 py-2 text-xs uppercase tracking-wide text-[#13293D] hover:bg-[#13293D] hover:text-white transition-all"
-                    >
-                      Go Home
-                    </Link>
-                  </div>
-                </div>
-              }
-            />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>
       </CartProvider>

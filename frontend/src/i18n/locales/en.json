@@ -510,5 +510,10 @@
     "smsQuotesDesc": "Text when a quote response is ready",
     "smsMarketing": "Promotions via SMS",
     "smsMarketingDesc": "Exclusive deals and new arrival alerts"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist.",
+    "goHome": "Go Home"
   }
 }

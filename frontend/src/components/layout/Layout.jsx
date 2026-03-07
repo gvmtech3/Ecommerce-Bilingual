@@ -4,13 +4,16 @@ import Footer from './Footer'
 import { useAuth } from '../../hooks/useAuth'
 
 function Layout({ children }) {
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, user } = useAuth()
 
   return (
     <div className="min-h-screen bg-[#E9E0D8]/90 text-[#181818]">
       <Navigation />
       <main className="pt-16">{children}</main>
-      {!isAuthenticated && <Footer />}
+      <Footer 
+        isAuthenticated={isAuthenticated}
+        role={user?.role}
+      />
     </div>
   )
 }

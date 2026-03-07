@@ -31,7 +31,7 @@ function AuthPage() {
   useEffect(() => {
     if (user) {
       if (user.role === 'customer') {
-        navigate('/customer')
+        navigate('/catalog')
       } else {
         navigate('/brand')
       }
@@ -170,7 +170,7 @@ function SigninForm({ loginAsCustomer, loginAsBrand, navigate }) {
         if (role === 'customer') {
           
           loginAsCustomer()
-          navigate('/customer')
+          navigate('/catalog')
         } else {
           loginAsBrand()
           navigate('/brand')
